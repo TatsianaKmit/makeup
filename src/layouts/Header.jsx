@@ -9,7 +9,7 @@ export default function Header() {
         <img src="assets/logo.png" alt="logo" className="header-logo" />
       </NavLink>
       <NavLink to={"/catalog"} className="header-link">
-        CATALOG
+        CATALOG 
       </NavLink>
       <NavLink to={"/brands/"} className="header-link">
         BRANDS

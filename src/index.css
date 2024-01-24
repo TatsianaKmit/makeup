@@ -2,28 +2,32 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 .main-container {
   min-height: calc(100vh - 100px - 100px);
   padding: 1.5rem 0;
-
 }
 
 .product-types {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 1rem;
+}
+
+.filter-brands {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
 }
 
 /* .card {
@@ -40,7 +44,55 @@ code {
 }
 
 .card .card-image {
-  max-width: 150px;
-  max-height: 150px;
+  max-width: 120px;
+  max-height: 120px;
 }
 
+.form-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dropdown {
+  width: 400px;
+  /* user-select: none; */
+  margin: 100px auto;
+  /* position: relative; */
+}
+
+.dropdown .dropdown-btn {
+  padding: 15px 20px;
+  background: #fff;
+  box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
+  font-weight: bold;
+  color: #333;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-between;
+}
+
+.dropdown,
+.dropdown-content {
+  /* position: absolute; */
+  /* top: 110%;
+  left: 0; */
+  padding: 10px;
+  background: #fff;
+  box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
+  font-weight: 500;
+  color: #333;
+  width: 95%;
+}
+
+.dropdown .dropdown-content,
+.dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dropdown .dropdown-content,
+.dropdown-item:hover {
+  background: #f4f4f4;
+}

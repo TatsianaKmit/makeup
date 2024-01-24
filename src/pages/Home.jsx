@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       {/* {loading ? <Prealoader/> : <ProductsList  />} */}
-      <ProductsList />
+      {/* <ProductsList /> */}
     </>
   );
 }

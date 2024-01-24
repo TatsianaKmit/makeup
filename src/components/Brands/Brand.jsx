@@ -7,7 +7,14 @@ export default function Brand(props) {
   return (
     <div>
       <Link to={`/brands/${brand_name}`}>
-        <p>{brand_name}</p>
+        <div className="card #fce4ec pink lighten-5">
+          <div className="card-content black-text">
+            <span className="card-title">{brand_name}</span>
+          </div>
+          {/* <div className="card-action">
+              <p>Link?</p>
+            </div> */}
+        </div>
       </Link>
     </div>
   );
