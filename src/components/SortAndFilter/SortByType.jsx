@@ -5,7 +5,6 @@ export default function SortByType({ selected, setSelected }) {
   const [isActive, setIsActive] = useState(false);
 
   return (
-    // <div className="filter-brands #fce4ec pink lighten-5">
     <>
       <div className="dropdown">
         <div className="dropdown-btn" onClick={(e) => setIsActive(!isActive)}>
@@ -29,17 +28,6 @@ export default function SortByType({ selected, setSelected }) {
           </div>
         )}
       </div>
-
-      {/* <div>
-        {data.map((type) => (
-          <p key={type.id}>
-            <label>
-              <input className="with-gap" name="group1" type="radio" />
-              <span>{type.name}</span>
-            </label>
-          </p>
-        ))}
-      </div> */}
     </>
   );
 }

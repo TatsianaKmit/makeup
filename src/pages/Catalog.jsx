@@ -1,11 +1,13 @@
-import React from "react";
-import TypesList from "./../components/ProductTypes/TypesList";
+import React, { useState } from "react";
+import ClassifiersList from "../components/classifiers/classifiers.list";
 
 export default function Catalog() {
+  const [isTypes, setIsTypes] = useState(true);
+
   return (
     <>
       <h1>CATALOG</h1>
-      <TypesList />
+      <ClassifiersList isTypes={isTypes} />
     </>
   );
 }

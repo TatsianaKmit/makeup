@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ProductsList from "../components/Product/ProductsList";
+// import ProductsList from "../components/Product/ProductsList";
 import Prealoader from "../components/Preloader/Preloader";
 
 export default function Home() {

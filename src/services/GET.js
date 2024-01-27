@@ -14,7 +14,6 @@ export const fetchProductsList = async (
   }
 };
 
-
 // export const fetchProductsList = async (
 //   type = "lipstick",
 //   brand = "maybelline"
@@ -30,6 +29,8 @@ export const fetchProductsList = async (
 //     return console.warn(err);
 //   }
 // };
+
+///// РАЗДЕЛЬНЫЕ УБРАТЬ!!!!!!!!!!!!
 
 export const fetchProductsListbyType = async (type) => {
   try {

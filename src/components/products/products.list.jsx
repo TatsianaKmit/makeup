@@ -1,20 +1,7 @@
-import React, { useState, useEffect } from "react";
-import Preloader from "../../components/Preloader/Preloader";
-import { fetchProductsList } from "../../services/GET";
-import ProductItem from "./ProductItem";
+import React from "react";
 import { Link } from "react-router-dom";
 
-export default function ProductsList() {
-  const [details, setDetails] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetchProductsList().then((response) => {
-      setDetails(response);
-      console.log("DATA:", response);
-    });
-  }, []);
-
+export default function ProductsList({ details }) {
   return (
     <>
       <h4>Main Products List Brand + Type</h4>
@@ -35,9 +22,6 @@ export default function ProductsList() {
                           <p>{detail.brand}</p>
                           <p>{detail.price}</p>
                         </div>
-                        {/* <div className="card-action">
-                          <p>Link?</p>
-                        </div> */}
                       </div>
                     </Link>
                   </li>

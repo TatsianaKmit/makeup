@@ -1,14 +1,17 @@
+import React, { useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-
 import PageNotFound from "./pages/PageNotFound";
 import Layout from "./layouts/Layout";
 import style from "./style/app.scss";
 import Brands from "./pages/Brands";
 import Home from "./pages/Home";
 import Catalog from "./pages/Catalog";
-import ProductItem from "./components/Product/ProductItem";
-import ProductsListbyType from "./components/ProductTypes/ProductsListbyType";
-import ProductsListbyBrand from "./components/Brands/ProductsListbyBrand";
+import ProductsPage from "./pages/ProductsPage";
+import CatalogDetails from "./pages/ProductsPageCatalog";
+import BrandsDetails from "./pages/ProductsPageBrands";
+import ProductsPageBrands from "./pages/ProductsPageBrands";
+import ProductsPageCatalog from "./pages/ProductsPageCatalog";
+import ProductItem from "./components/products/ProductItem";
 
 function App() {
   return (
@@ -17,10 +20,13 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="brands" element={<Brands />} />
-          <Route path="brands/:brand_name" element={<ProductsListbyBrand />} />
-          <Route path="brands/:brand_name/product/:id" element={<ProductItem />} />
+          <Route path="brands/:brand_name" element={<ProductsPageBrands />} />
+          <Route
+            path="brands/:brand_name/product/:id"
+            element={<ProductItem />}
+          />
           <Route path="catalog" element={<Catalog />} />
-          <Route path="catalog/:name" element={<ProductsListbyType />} />
+          <Route path="catalog/:name" element={<ProductsPageCatalog />} />
           <Route path="catalog/:name/product/:id" element={<ProductItem />} />
           <Route path="product/:id" element={<ProductItem />} />
           <Route path="*" element={<PageNotFound />} />

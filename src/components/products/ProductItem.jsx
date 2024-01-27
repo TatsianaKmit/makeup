@@ -17,12 +17,12 @@ export default function ProductItem() {
 
   return (
     <div className="card large #fce4ec pink lighten-5">
-        <div className="card-headers">
-            <span>{details.price}</span>
-            <span>{details.brand}</span>
-            <span>{details.category}</span>
-            <span>{details.product_type}</span>
-        </div>
+      <div className="card-headers">
+        <span>{details.price}</span>
+        <span>{details.brand}</span>
+        <span>{details.category}</span>
+        <span>{details.product_type}</span>
+      </div>
       <span className="card-title">{details.name}</span>
       <div className="card-image">
         <img src={details.image_link} />
@@ -30,8 +30,8 @@ export default function ProductItem() {
       <div className="card-content">
         <p>{details.description}</p>
         <div className="product-colors">
-            <h5>Colours:</h5>
-            <ProductColorsList/>
+          <h5>Colours:</h5>
+          <ProductColorsList />
         </div>
       </div>
     </div>
