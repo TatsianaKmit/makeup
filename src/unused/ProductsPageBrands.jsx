@@ -9,7 +9,7 @@ import SortByType from "../components/SortAndFilter/SortByType";
 
 export default function ProductsPageBrands() {
   const [details, setDetails] = useState([]);
-  const [selected, setSelected] = useState("Select Category");
+
 
   const { brand_name } = useParams();
   console.log("USE_PARAMS", brand_name);
@@ -23,7 +23,7 @@ export default function ProductsPageBrands() {
 
   return (
     <>
-      <SortByType selected={selected} setSelected={setSelected} />
+      <SortByType />
       <ProductsList details={details} brand_name={brand_name} />
     </>
   );

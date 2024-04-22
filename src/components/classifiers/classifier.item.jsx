@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 export default function ClassifierItem(props) {
   const { name, img, brand_name, isTypes } = props;
 
+  let path = isTypes ? `products?filter=categories&category=${name}` : `products?filter=brands&brand=${brand_name}`;
+
   let classifierItem;
   if (isTypes) {
     classifierItem = (
@@ -15,7 +17,7 @@ export default function ClassifierItem(props) {
           <span className="card-title">{name}</span>
         </div>
         <div className="card-action ">
-          <Link to={`/catalog/${name} `} className="btn #ad1457 pink darken-3">
+          <Link to={`/${path}`} className="btn #ad1457 pink darken-3">
             Products
           </Link>
         </div>
@@ -24,7 +26,7 @@ export default function ClassifierItem(props) {
   } else {
     classifierItem = (
       <div>
-        <Link to={`/brands/${brand_name}`}>
+        <Link to={`/${path}`}>
           <div className="card #fce4ec pink lighten-5">
             <div className="card-content black-text">
               <span className="card-title">{brand_name}</span>

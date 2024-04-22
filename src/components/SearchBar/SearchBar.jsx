@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { fetchProductsList } from "../../services/GET";
+
 
 export default function SearchBar() {
   const [search, setSearch] = useState("");
@@ -12,7 +12,7 @@ export default function SearchBar() {
   //   });
   // }, [search]);
 
-  const searchItems = (str) => {};
+  const searchItems = (str) => { };
 
   const handleKey = (event) => {
     if (event.key === "enter") {
