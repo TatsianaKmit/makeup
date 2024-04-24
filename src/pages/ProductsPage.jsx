@@ -3,37 +3,47 @@ import ProductsList from "../components/products/products.list";
 import {
   fetchProductsList
 } from "../services/GET";
-import { useSearchParams } from "react-router-dom";
-import SortByBrand from "../components/SortAndFilter/SortByBrand";
-import SortByType from "../components/SortAndFilter/SortByType";
+import DataFilter from "../components/SearchAndFilter/DataFilter";
 
-/////////// ----------- COMMON PAGE TO MERGE ProductsPageBrands and ProductsPageCatalog ---------//////////
-
-export default function ProductsPage({ name }) {
+export default function ProductsPage() {
   const [details, setDetails] = useState([]);
-  const [selected, setSelected] = useState("");
-  const [filter, setFilter] = useState("");
 
   let searchParams = new URLSearchParams(window.location.search);
   let filterUrl = searchParams.get("filter");
   let brand = searchParams.get("brand");
   let category = searchParams.get("category");
 
+  const searchProducts = (setCategory, setBrand) => {
+    let newFilter;
+    let typeParam;
+    let brandParam;
+
+    if (filterUrl === 'brands') {
+      typeParam = setCategory;
+      brandParam = brand;
+    } else if (filterUrl === 'catalog') {
+      typeParam = category;
+      brandParam = setBrand;
+    }
+
+    if ((filterUrl === 'brands' && setCategory) || (filterUrl === 'catalog' && setBrand)) {
+      newFilter = "crossSelected";
+      fetchProductsList({ type: typeParam, brand: brandParam, filter: newFilter }).then((response) => {
+        setDetails(response);
+      });
+    }
+  }
+
   useEffect(() => {
-    setFilter(filterUrl);
     fetchProductsList({ type: category, brand, filter: filterUrl }).then((response) => {
       setDetails(response);
     });
-  }, [filterUrl, category, brand]);
-
-  const clickHandler = (event) => {
-    setSelected(event.target.dataset.type);
-  };
+  }, [category, brand, filterUrl]);
 
   return (
     <>
-      {filter === "brands" ? <SortByBrand selected={selected} clickHandler={clickHandler} /> : <SortByType />}
-      <ProductsList details={details} name={name} filter={filter} />
+      {filterUrl === "brands" ? <DataFilter searchProducts={searchProducts} filterType="catalog" /> : <DataFilter searchProducts={searchProducts} filterType="brands" />}
+      <ProductsList details={details} />
     </>
   );
 }

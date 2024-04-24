@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function ProductsList({ details }) {
   return (
     <>
-      <h4>Main Products List Brand + Type</h4>
+      <h4>Products List</h4>
       <div className="products-container ">
         <ul>
           <div className="product-types">

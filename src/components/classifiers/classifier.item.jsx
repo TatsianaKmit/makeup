@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function ClassifierItem(props) {
   const { name, img, brand_name, isTypes } = props;
 
-  let path = isTypes ? `products?filter=categories&category=${name}` : `products?filter=brands&brand=${brand_name}`;
+  let path = isTypes ? `products?filter=catalog&category=${name}` : `products?filter=brands&brand=${brand_name}`;
 
   let classifierItem;
   if (isTypes) {

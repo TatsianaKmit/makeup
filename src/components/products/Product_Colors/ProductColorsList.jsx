@@ -9,7 +9,6 @@ export default function ProductColorsList() {
   useEffect(() => {
     fetchProductsItem(id).then((response) => {
       setColours(response.product_colors);
-      console.log("colors", response.product_colors);
     });
   }, [id]);
 

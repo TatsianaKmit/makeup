@@ -11,7 +11,6 @@ export default function ProductItem() {
   useEffect(() => {
     fetchProductsItem(id).then((response) => {
       setDetails(response);
-      console.log("item_data:", response);
     });
   }, [id]);
 
