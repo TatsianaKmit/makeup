@@ -15,7 +15,7 @@ export default function ProductsPage() {
   let brand = searchParams.get("brand");
   let category = searchParams.get("category");
 
-  const searchProducts = (setCategory, setBrand) => {
+  const searchProducts = (setCategory, setBrand, searchValue) => {
     let newFilter;
     let typeParam;
     let brandParam;
@@ -28,9 +28,22 @@ export default function ProductsPage() {
       brandParam = setBrand;
     }
 
-    if ((filterUrl === 'brands' && setCategory) || (filterUrl === 'catalog' && setBrand)) {
+    if (searchValue) {
+      newFilter = "search";
+      fetchProductsList({ type: setCategory, brand: setBrand, filter: newFilter, search: searchValue })
+        .then((response) => {
+          setLoading(false);
+          setDetails(response);
+        })
+        .catch((err) => {
+          console.error(err);
+          setLoading(false);
+        });
+    } else if
+
+      ((filterUrl === 'brands' && setCategory) || (filterUrl === 'catalog' && setBrand)) {
       newFilter = "crossSelected";
-      fetchProductsList({ type: typeParam, brand: brandParam, filter: newFilter })
+      fetchProductsList({ type: typeParam, brand: brandParam, filter: newFilter, search: searchValue })
         .then((response) => {
           setLoading(false)
           setDetails(response);

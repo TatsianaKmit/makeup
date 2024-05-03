@@ -10,28 +10,34 @@ import '@gravity-ui/uikit/styles/fonts.css';
 import '@gravity-ui/uikit/styles/styles.css';
 import { ThemeProvider } from "@gravity-ui/uikit";
 import ClassifiersPage from "./pages/ClassifiersPage";
+import { SearchProvider } from "./context/context";
+
 
 
 function App() {
 
   return (
+
     <ThemeProvider theme="light">
       <div className="container content #f48fb1 pink lighten-3">
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<LandingPage />} />
+        <SearchProvider>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<LandingPage />} />
 
-            <Route path="brands" element={<ClassifiersPage type="brands" />} />
-            <Route path="catalog" element={<ClassifiersPage type="catalog" />} />
+              <Route path="brands" element={<ClassifiersPage type="brands" />} />
+              <Route path="catalog" element={<ClassifiersPage type="catalog" />} />
 
-            <Route path="products" element={<ProductsPage />} />
-            <Route path="product/:id" element={<ProductItem />} />
+              <Route path="products" element={<ProductsPage />} />
+              <Route path="product/:id" element={<ProductItem />} />
 
-            <Route path="*" element={<PageNotFound />} />
-          </Route>
-        </Routes>
+              <Route path="*" element={<PageNotFound />} />
+            </Route>
+          </Routes>
+        </SearchProvider>
       </div>
     </ThemeProvider>
+
   );
 }
 

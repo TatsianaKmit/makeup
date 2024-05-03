@@ -2,7 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import style from "../style/header.scss";
 
-
 export default function Header() {
 
   return (
@@ -16,7 +15,6 @@ export default function Header() {
       <NavLink to={"/brands"} className="header-link">
         BRANDS
       </NavLink>
-      <img src="assets/search.png" alt="search" className="header-search" />
     </div>
   );
 }

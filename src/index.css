@@ -62,3 +62,11 @@ code {
   align-items: center;
 }
 
+.filter-and-search {
+  display: flex;
+}
+
+.search-field {
+  display: flex;
+  max-height: 28px;
+}
