@@ -14,6 +14,7 @@ export default function ProductsPage() {
   let filterUrl = searchParams.get("filter");
   let brand = searchParams.get("brand");
   let category = searchParams.get("category");
+  let tag = searchParams.get("tag");
 
   const searchProducts = (setCategory, setBrand, searchValue) => {
     let newFilter;
@@ -30,7 +31,7 @@ export default function ProductsPage() {
 
     if (searchValue) {
       newFilter = "search";
-      fetchProductsList({ type: setCategory, brand: setBrand, filter: newFilter, search: searchValue })
+      fetchProductsList({ type: setCategory, brand: setBrand, tag, filter: newFilter, search: searchValue })
         .then((response) => {
           setLoading(false);
           setDetails(response);
@@ -43,7 +44,7 @@ export default function ProductsPage() {
 
       ((filterUrl === 'brands' && setCategory) || (filterUrl === 'catalog' && setBrand)) {
       newFilter = "crossSelected";
-      fetchProductsList({ type: typeParam, brand: brandParam, filter: newFilter, search: searchValue })
+      fetchProductsList({ type: typeParam, brand: brandParam, tag, filter: newFilter, search: searchValue })
         .then((response) => {
           setLoading(false)
           setDetails(response);
@@ -56,16 +57,16 @@ export default function ProductsPage() {
   }
 
   useEffect(() => {
-    fetchProductsList({ type: category, brand, filter: filterUrl })
+    fetchProductsList({ type: category, brand, tag, filter: filterUrl })
       .then((response) => {
-        setLoading(false)
+        setLoading(false);
         setDetails(response);
       })
       .catch((err) => {
         console.error(err);
         setLoading(false);
       });
-  }, [category, brand, filterUrl]);
+  }, [category, brand, tag, filterUrl]);
 
   return (
     <>

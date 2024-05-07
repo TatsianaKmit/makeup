@@ -1,12 +1,14 @@
 import typesData from '../data/types.json'
 
-export const fetchProductsList = async ({ type, brand, filter, search }) => {
+export const fetchProductsList = async ({ type, brand, tag, filter, search }) => {
   try {
     let url = "";
     if (filter === "brands") {
       url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}`;
     } else if (filter === "catalog") {
       url = `http://makeup-api.herokuapp.com/api/v1/products.json?&product_type=${type}`;
+    } else if (filter === "product_tags") {
+      url = `http://makeup-api.herokuapp.com/api/v1/products.json?product_tags=${tag}`;
     } else if (filter === 'crossSelected') {
       url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}&product_type=${type}`
     } else if (filter === 'search') {

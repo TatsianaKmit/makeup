@@ -1,0 +1,117 @@
+[
+    {
+        "id": 0,
+        "tag": "Canadian",
+        "img": "https://images.pexels.com/photos/7144706/pexels-photo-7144706.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    },
+    {
+        "id": 1,
+        "tag": "CertClean",
+        "img": "https://images.pexels.com/photos/5699458/pexels-photo-5699458.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    },
+    {
+        "id": 2,
+        "tag": "Chemical Free",
+        "img": ""
+    },
+    {
+        "id": 3,
+        "tag": "Dairy Free",
+        "img": ""
+    },
+    {
+        "id": 4,
+        "tag": "EWG Verified",
+        "img": ""
+    },
+    {
+        "id": 5,
+        "tag": "EcoCert",
+        "img": ""
+    },
+    {
+        "id": 6,
+        "tag": "Fair Trade",
+        "img": ""
+    },
+    {
+        "id": 7,
+        "tag": "Gluten Free",
+        "img": ""
+    },
+    {
+        "id": 8,
+        "tag": "Hypoallergenic",
+        "img": ""
+    },
+    {
+        "id": 9,
+        "tag": "Natural",
+        "img": ""
+    },
+    {
+        "id": 10,
+        "tag": "No Talc",
+        "img": ""
+    },
+    {
+        "id": 11,
+        "tag": "Non-GMO",
+        "img": ""
+    },
+    {
+        "id": 12,
+        "tag": "Organic",
+        "img": "https://images.pexels.com/photos/2171077/pexels-photo-2171077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    },
+    {
+        "id": 13,
+        "tag": "Peanut Free Product",
+        "img": ""
+    },
+    {
+        "id": 14,
+        "tag": "Sugar Free",
+        "img": ""
+    },
+    {
+        "id": 15,
+        "tag": "USDA Organic",
+        "img": ""
+    },
+    {
+        "id": 16,
+        "tag": "Vegan",
+        "img": "https://images.pexels.com/photos/3669638/pexels-photo-3669638.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    },
+    {
+        "id": 17,
+        "tag": "alcohol free",
+        "img": ""
+    },
+    {
+        "id": 18,
+        "tag": "cruelty free",
+        "img": ""
+    },
+    {
+        "id": 19,
+        "tag": "oil free",
+        "img": ""
+    },
+    {
+        "id": 20,
+        "tag": "purpicks",
+        "img": ""
+    },
+    {
+        "id": 21,
+        "tag": "silicone free",
+        "img": ""
+    },
+    {
+        "id": 22,
+        "tag": "water free",
+        "img": ""
+    }
+]
