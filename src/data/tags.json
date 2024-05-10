@@ -1,117 +1,117 @@
 [
     {
         "id": 0,
-        "tag": "Canadian",
+        "tag_name": "Canadian",
         "img": "https://images.pexels.com/photos/7144706/pexels-photo-7144706.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
         "id": 1,
-        "tag": "CertClean",
+        "tag_name": "CertClean",
         "img": "https://images.pexels.com/photos/5699458/pexels-photo-5699458.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
         "id": 2,
-        "tag": "Chemical Free",
+        "tag_name": "Chemical Free",
         "img": ""
     },
     {
         "id": 3,
-        "tag": "Dairy Free",
+        "tag_name": "Dairy Free",
         "img": ""
     },
     {
         "id": 4,
-        "tag": "EWG Verified",
+        "tag_name": "EWG Verified",
         "img": ""
     },
     {
         "id": 5,
-        "tag": "EcoCert",
+        "tag_name": "EcoCert",
         "img": ""
     },
     {
         "id": 6,
-        "tag": "Fair Trade",
+        "tag_name": "Fair Trade",
         "img": ""
     },
     {
         "id": 7,
-        "tag": "Gluten Free",
+        "tag_name": "Gluten Free",
         "img": ""
     },
     {
         "id": 8,
-        "tag": "Hypoallergenic",
+        "tag_name": "Hypoallergenic",
         "img": ""
     },
     {
         "id": 9,
-        "tag": "Natural",
+        "tag_name": "Natural",
         "img": ""
     },
     {
         "id": 10,
-        "tag": "No Talc",
+        "tag_name": "No Talc",
         "img": ""
     },
     {
         "id": 11,
-        "tag": "Non-GMO",
+        "tag_name": "Non-GMO",
         "img": ""
     },
     {
         "id": 12,
-        "tag": "Organic",
+        "tag_name": "Organic",
         "img": "https://images.pexels.com/photos/2171077/pexels-photo-2171077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
         "id": 13,
-        "tag": "Peanut Free Product",
+        "tag_name": "Peanut Free Product",
         "img": ""
     },
     {
         "id": 14,
-        "tag": "Sugar Free",
+        "tag_name": "Sugar Free",
         "img": ""
     },
     {
         "id": 15,
-        "tag": "USDA Organic",
+        "tag_name": "USDA Organic",
         "img": ""
     },
     {
         "id": 16,
-        "tag": "Vegan",
+        "tag_name": "Vegan",
         "img": "https://images.pexels.com/photos/3669638/pexels-photo-3669638.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
         "id": 17,
-        "tag": "alcohol free",
+        "tag_name": "alcohol free",
         "img": ""
     },
     {
         "id": 18,
-        "tag": "cruelty free",
+        "tag_name": "cruelty free",
         "img": ""
     },
     {
         "id": 19,
-        "tag": "oil free",
+        "tag_name": "oil free",
         "img": ""
     },
     {
         "id": 20,
-        "tag": "purpicks",
+        "tag_name": "purpicks",
         "img": ""
     },
     {
         "id": 21,
-        "tag": "silicone free",
+        "tag_name": "silicone free",
         "img": ""
     },
     {
         "id": 22,
-        "tag": "water free",
+        "tag_name": "water free",
         "img": ""
     }
 ]
