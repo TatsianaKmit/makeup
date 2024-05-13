@@ -9,11 +9,20 @@ export default function Header() {
       <NavLink to={"/"}>
         <img src="assets/logo.png" alt="logo" className="header-logo" />
       </NavLink>
+      <NavLink to={"/"} className="header-link">
+        Home
+      </NavLink>
+      <NavLink to={"/"} className="header-link">
+        About
+      </NavLink>
       <NavLink to={"/catalog"} className="header-link">
-        CATALOG
+        Products
       </NavLink>
       <NavLink to={"/brands"} className="header-link">
-        BRANDS
+        Brands
+      </NavLink>
+      <NavLink to={"/"} className="header-link">
+        Contact
       </NavLink>
     </div>
   );

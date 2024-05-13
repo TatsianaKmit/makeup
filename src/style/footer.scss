@@ -1,0 +1,12 @@
+.footer_right {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.footer_right_segment {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}

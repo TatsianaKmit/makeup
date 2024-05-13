@@ -1,9 +1,19 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Spin } from "@gravity-ui/uikit";
+import { Card } from "@gravity-ui/uikit";
 
 export default function ProductsList({ details }) {
   const [imageLoading, setImageLoading] = useState(true);
+
+  const style = {
+    width: '250px',
+    height: '250px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column'
+  }
 
   const handleImageLoad = () => {
     setImageLoading(false);
@@ -21,7 +31,7 @@ export default function ProductsList({ details }) {
               details.map((detail) => (
                 <li key={detail.id}>
                   <Link to={`/product/${detail.id}`}>
-                    <div className="card small">
+                    <Card style={style} view="outlined" type="container" size="l">
                       {imageLoading && <Spin className='spin' />}
                       <div className="card-image">
                         <img
@@ -39,7 +49,7 @@ export default function ProductsList({ details }) {
                         <p>{detail.brand}</p>
                         <p>{detail.price}</p>
                       </div>
-                    </div>
+                    </Card>
                   </Link>
                 </li>
               ))

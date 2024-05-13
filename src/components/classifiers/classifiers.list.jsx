@@ -15,7 +15,7 @@ export default function ClassifiersList({ isTypes }) {
     );
   } else {
     classifierList = (
-      <div className="product-types">
+      <div className="product-brands">
         {brands.map((brand) => (
           <ClassifierItem key={brand.id} {...brand} isTypes={isTypes} />
         ))}

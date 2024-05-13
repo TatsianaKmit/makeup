@@ -3,6 +3,7 @@ import { fetchProductsItem } from "../../services/GET";
 import { useParams } from "react-router-dom";
 import ProductColorsList from "./Product_Colors/ProductColorsList";
 import { Spin } from "@gravity-ui/uikit";
+import { Card } from "@gravity-ui/uikit";
 
 export default function ProductItem() {
   const [details, setDetails] = useState([]);
@@ -10,6 +11,16 @@ export default function ProductItem() {
   const [imageLoading, setImageLoading] = useState(true);
 
   const { id } = useParams();
+
+  const style = {
+    width: '500px',
+    height: '500px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column'
+  }
+
 
   useEffect(() => {
     fetchProductsItem(id).then((response) => {
@@ -30,7 +41,9 @@ export default function ProductItem() {
       {loading ? (
         <Spin />
       ) : (
-        <div className="card large #fce4ec pink lighten-5">
+
+        <Card style={style} view="filled" type="container" size="xl">
+
           <div className="card-headers">
             <span>{details.price}</span>
             <span>{details.brand}</span>
@@ -53,7 +66,8 @@ export default function ProductItem() {
               <ProductColorsList />
             </div>
           </div>
-        </div>
+
+        </Card>
       )}
     </>
   );

@@ -2,82 +2,82 @@
     {
         "id": 0,
         "tag_name": "Canadian",
-        "img": "https://images.pexels.com/photos/7144706/pexels-photo-7144706.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        "img": "https://images.pexels.com/photos/7072130/pexels-photo-7072130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
         "id": 1,
         "tag_name": "CertClean",
-        "img": "https://images.pexels.com/photos/5699458/pexels-photo-5699458.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        "img": "https://images.pexels.com/photos/733856/pexels-photo-733856.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
         "id": 2,
         "tag_name": "Chemical Free",
-        "img": ""
+        "img": "https://images.pexels.com/photos/3825468/pexels-photo-3825468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
         "id": 3,
         "tag_name": "Dairy Free",
-        "img": ""
+        "img": "https://images.pexels.com/photos/4428345/pexels-photo-4428345.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
         "id": 4,
         "tag_name": "EWG Verified",
-        "img": ""
+        "img": "https://images.pexels.com/photos/1342609/pexels-photo-1342609.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
         "id": 5,
         "tag_name": "EcoCert",
-        "img": ""
+        "img": "https://images.pexels.com/photos/886521/pexels-photo-886521.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
         "id": 6,
         "tag_name": "Fair Trade",
-        "img": ""
+        "img": "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
         "id": 7,
         "tag_name": "Gluten Free",
-        "img": ""
+        "img": "https://images.pexels.com/photos/265216/pexels-photo-265216.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
         "id": 8,
         "tag_name": "Hypoallergenic",
-        "img": ""
+        "img": "https://images.pexels.com/photos/576831/pexels-photo-576831.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
         "id": 9,
         "tag_name": "Natural",
-        "img": ""
+        "img": "https://images.pexels.com/photos/580900/pexels-photo-580900.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
         "id": 10,
         "tag_name": "No Talc",
-        "img": ""
+        "img": "https://images.pexels.com/photos/3763696/pexels-photo-3763696.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
         "id": 11,
         "tag_name": "Non-GMO",
-        "img": ""
+        "img": "https://images.pexels.com/photos/4031442/pexels-photo-4031442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
         "id": 12,
         "tag_name": "Organic",
-        "img": "https://images.pexels.com/photos/2171077/pexels-photo-2171077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        "img": "https://images.pexels.com/photos/992816/pexels-photo-992816.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
         "id": 13,
         "tag_name": "Peanut Free Product",
-        "img": ""
+        "img": "https://images.pexels.com/photos/4202964/pexels-photo-4202964.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
         "id": 14,
         "tag_name": "Sugar Free",
-        "img": ""
+        "img": "https://images.pexels.com/photos/1126359/pexels-photo-1126359.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
         "id": 15,
         "tag_name": "USDA Organic",
-        "img": ""
+        "img": "https://images.pexels.com/photos/422218/pexels-photo-422218.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
         "id": 16,
@@ -87,31 +87,31 @@
     {
         "id": 17,
         "tag_name": "alcohol free",
-        "img": ""
+        "img": "https://images.pexels.com/photos/2466319/pexels-photo-2466319.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
         "id": 18,
         "tag_name": "cruelty free",
-        "img": ""
+        "img": "https://images.pexels.com/photos/6845638/pexels-photo-6845638.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
         "id": 19,
         "tag_name": "oil free",
-        "img": ""
+        "img": "https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
         "id": 20,
         "tag_name": "purpicks",
-        "img": ""
+        "img": "https://images.pexels.com/photos/210661/pexels-photo-210661.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
         "id": 21,
         "tag_name": "silicone free",
-        "img": ""
+        "img": "https://images.pexels.com/photos/6387845/pexels-photo-6387845.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
         "id": 22,
         "tag_name": "water free",
-        "img": ""
+        "img": "https://images.pexels.com/photos/831889/pexels-photo-831889.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     }
 ]

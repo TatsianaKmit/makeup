@@ -1,5 +1,4 @@
 import React from "react";
-import style from "./style/app.scss";
 import { Routes, Route } from "react-router-dom";
 import PageNotFound from "./pages/PageNotFound";
 import Layout from "./layouts/Layout";
@@ -19,7 +18,7 @@ function App() {
   return (
 
     <ThemeProvider theme="light">
-      <div className="container content #f48fb1 pink lighten-3">
+      <div className="container content #white">
         <SearchProvider>
           <Routes>
             <Route path="/" element={<Layout />}>
