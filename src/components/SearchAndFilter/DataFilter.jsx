@@ -7,22 +7,49 @@ import { Select } from '@gravity-ui/uikit';
 import { useEffect } from "react";
 
 export default function DataFilter(props) {
-    const { filterUrl, category, brand, tag, filterProducts } = props
+    const { filterUrl, category, brand, tag, details } = props
     const [selectedValues, setSelectedValues] = useState({
         category: '',
         brand: '',
         tag: '',
     });
 
+
+    const [selectBrand, setSelectBrand] = useState([])
+    const [selectTag, setSelectTag] = useState([])
+
+    const [filterArrayState, setFilterArrayState] = useState([])
+
+    function filterProductsFunc(array, selectedValues, type) {
+       
+        const filterArray = array.filter((item) => {
+            if(Array.isArray(item[type])) {
+              return  item.tag_list.includes(selectedValues[0])
+            } else {
+             return item[type] === selectedValues[0]
+            }
+           
+        });
+        return filterArray;
+    }
+
+    console.log(filterArrayState)
+
+    useEffect(() => {
+        setFilterArrayState(filterProductsFunc(details, selectBrand, "brand"))    
+        if(selectTag.length > 0) {
+            setFilterArrayState(filterProductsFunc(filterArrayState, selectTag, "tag_list"))    
+        }
+    }, [selectBrand, selectTag, filterArrayState, details])
+
+
     const handleSelectChange = (name, value) => {
         setSelectedValues((prev) => ({
             ...prev,
             [name]: value,
         }));
-        filterProducts(selectedValues);
+        // filterProducts(selectedValues);
     };
-
-
 
     // const [selectedCategory, setSelectedCategory] = useState('')
     // const [selectedBrand, setSelectedBrand] = useState('')
@@ -71,8 +98,8 @@ export default function DataFilter(props) {
                                 multiple={false}
                                 width={150}
                                 placeholder="Tags"
-                                value={selectedValues.tag}
-                                onUpdate={(value) => handleSelectChange("tag", value)}
+                                value={selectTag}
+                                onUpdate={(value) => setSelectTag(value)}
                             >
                                 {
                                     tags.map(tag => (
@@ -91,8 +118,8 @@ export default function DataFilter(props) {
                                 multiple={false}
                                 width={150}
                                 placeholder="Brand"
-                                value={selectedValues.brand}
-                                onUpdate={(value) => handleSelectChange("brand", value)}
+                                value={selectBrand}
+                                onUpdate={(value) => setSelectBrand(value)}
                             >
                                 {
                                     brands.map(brand => (
@@ -107,7 +134,7 @@ export default function DataFilter(props) {
                                 width={150}
                                 placeholder="Tags"
                                 value={selectedValues.tag}
-                                onUpdate={(value) => handleSelectChange("tag", value)}
+                                onUpdate={(value) => setSelectTag(value)}
                             >
                                 {
                                     tags.map(tag => (
@@ -128,7 +155,7 @@ export default function DataFilter(props) {
                                 width={150}
                                 placeholder="Brand"
                                 value={selectedValues.brand}
-                                onUpdate={(value) => handleSelectChange("brand", value)}
+                                onUpdate={(value) => setSelectBrand(value)}
                             >
                                 {
                                     brands.map(brand => (

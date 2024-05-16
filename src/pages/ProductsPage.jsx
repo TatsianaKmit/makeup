@@ -22,7 +22,7 @@ export default function ProductsPage() {
       .then((response) => {
         setLoading(false);
         setDetails(response);
-        console.log('category: ', category, 'brand: ', brand, 'tag: ', tag, 'filterUrl: ', filterUrl);
+        // console.log('category: ', category, 'brand: ', brand, 'tag: ', tag, 'filterUrl: ', filterUrl);
       })
       .catch((err) => {
         console.error(err);
@@ -30,42 +30,42 @@ export default function ProductsPage() {
       });
   }, [category, brand, tag, filterUrl]);
 
-  console.log(details);
+  // console.log(details);
 
-  const filterProducts = (selectedValues, details) => {
+  // const filterProducts = (selectedValues, details) => {
 
-    // const filteredbyBrand = details.filter(item => (item.brand === selectedBrand))
-    // const filteredbyCategory = details.filter(item => item.product_type === selectedCategory);
-    // const filteredbyTag = details.filter(item => item.tag_list.includes(selectedTag));
+  //   console.log(selectedValues);
 
-    // const searchMatch = searchValue ? product.name.toLowerCase().includes(searchValue.toLowerCase())
+  //   // const filteredbyBrand = details.filter(item => (item.brand === selectedBrand))
+  //   // const filteredbyCategory = details.filter(item => item.product_type === selectedCategory);
+  //   // const filteredbyTag = details.filter(item => item.tag_list.includes(selectedTag));
 
-    let filteredDetails = details;
+  //   // const searchMatch = searchValue ? product.name.toLowerCase().includes(searchValue.toLowerCase())
 
-    if (selectedValues.category) {
-      filteredDetails = filteredDetails.filter((detail) => detail.product_type === selectedValues.category);
-    }
+  //   let filteredDetails = details;
 
-    if (selectedValues.brand) {
-      filteredDetails = filteredDetails.filter((detail) => detail.brand === selectedValues.brand);
-    }
+  //   if (selectedValues.category) {
+  //     filteredDetails = filteredDetails.filter((detail) => detail.product_type === selectedValues.category);
+  //   }
 
-    if (selectedValues.tag) {
-      filteredDetails = filteredDetails.filter((detail) => detail.tag_list.includes(selectedValues.tag));
-    }
+  //   if (selectedValues.brand) {
+  //     filteredDetails = filteredDetails.filter((detail) => detail.brand === selectedValues.brand);
+  //   }
 
-    console.log(selectedValues, details);
-
-    return filteredDetails;
+  //   if (selectedValues.tag) {
+  //     filteredDetails = filteredDetails.filter((detail) => detail.tag_list.includes(selectedValues.tag));
+  //   }
 
 
+  //   return filteredDetails;
 
+  // }
 
-  }
+  // console.log(details);
 
   return (
     <>
-      {filterUrl === "brands" ? <DataFilter filterProducts={filterProducts} filterUrl={filterUrl} brand={brand} /> : filterUrl === 'catalog' ? <DataFilter filterProducts={filterProducts} filterUrl={filterUrl} category={category} /> : <DataFilter filterProducts={filterProducts} filterUrl={filterUrl} tag={tag} />}
+      {filterUrl === "brands" ? <DataFilter details={details} filterUrl={filterUrl} brand={brand} /> : filterUrl === 'catalog' ? <DataFilter details={details} filterUrl={filterUrl} category={category} /> : <DataFilter details={details} filterUrl={filterUrl} tag={tag} />}
       {loading ? <Spin className='spin' /> : <ProductsList details={filteredDetails.length > 0 ? filteredDetails : details} />}
     </>
   );
