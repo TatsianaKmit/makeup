@@ -1,6 +1,6 @@
 import typesData from '../data/types.json'
 
-export const fetchProductsList = async ({ type, brand, tag, filter, search }) => {
+export const fetchProductsList = async ({ type, brand, tag, filter }) => {
   try {
     let url = "";
     if (filter === "brands") {
@@ -9,18 +9,11 @@ export const fetchProductsList = async ({ type, brand, tag, filter, search }) =>
       url = `http://makeup-api.herokuapp.com/api/v1/products.json?&product_type=${type}`;
     } else if (filter === "product_tags") {
       url = `http://makeup-api.herokuapp.com/api/v1/products.json?product_tags=${tag}`;
-    } else if (filter !== 'search') {
-      url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}&product_type=${type}&product_tags=${tag}`
-    } else if (filter === 'search') {
-      const productTypeNames = typesData.map(type => type.name.toLowerCase());
-      const searchLower = search.toLowerCase();
-      if (productTypeNames.includes(searchLower)) {
-        url = `http://makeup-api.herokuapp.com/api/v1/products.json?&product_type=${searchLower}`;
-      } else {
-        url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${search}`;
-      }
     }
-
+    // else if (filter === "all") {
+    //   url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}&product_type=${type}&product_tags=${tag}`
+    // }
+    // console.log('GET.js filter', filter, 'type: ', type, 'brand: ', brand, 'tag: ', tag);
     const response = await fetch(url);
     return await response.json();
   } catch (err) {
@@ -38,3 +31,14 @@ export const fetchProductsItem = async (id) => {
     return console.warn(err);
   }
 };
+
+//////////-----------searchPart-------------//////////////////////
+
+// } else if (filter === 'search') {
+//   const productTypeNames = typesData.map(type => type.name.toLowerCase());
+//   const searchLower = search.toLowerCase();
+//   if (productTypeNames.includes(searchLower)) {
+//     url = `http://makeup-api.herokuapp.com/api/v1/products.json?&product_type=${searchLower}`;
+//   } else {
+//     url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${search}`;
+//   }

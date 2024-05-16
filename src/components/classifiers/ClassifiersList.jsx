@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import types from "../../data/types.json";
 import brands from "../../data/brands.json";
-import ClassifierItem from "./classifier.item";
+import ClassifierItem from "./ClassifiersItem";
 
 export default function ClassifiersList({ isTypes }) {
   let classifierList;
@@ -22,6 +22,5 @@ export default function ClassifiersList({ isTypes }) {
       </div>
     );
   }
-
   return <div>{classifierList}</div>;
 }

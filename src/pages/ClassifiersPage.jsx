@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import ClassifiersList from "../components/classifiers/classifiers.list";
+import ClassifiersList from "../components/classifiers/ClassifiersList";
 import { Spin } from "@gravity-ui/uikit";
 
 export default function ClassifiersPage({ type }) {
@@ -20,7 +20,6 @@ export default function ClassifiersPage({ type }) {
 
     return (
         <>
-            <h1>{isTypes ? "CATALOG" : "BRANDS"}</h1>
             {loading ? <Spin className='spin' /> : <ClassifiersList isTypes={isTypes} />}
         </>
     );

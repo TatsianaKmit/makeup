@@ -1,0 +1,54 @@
+.landing_picture {
+    background-image: url('../../public/assets/landing1.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 600px;
+    display: flex;
+    flex-direction: row
+}
+
+.landing-text {
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-basis: 60%;
+}
+
+.landing-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+
+    .landing-button {
+        flex-basis: 40%;
+        background-color: white;
+        padding: 20px;
+    }
+
+}
+
+.landing_page {
+
+    h2 {
+        font-family: "DynaPuff", system-ui;
+        font-optical-sizing: auto;
+        font-weight: 600;
+        font-style: normal;
+        font-variation-settings:
+            "wdth" 75;
+        color: #120D0F;
+    }
+
+    h4 {
+        font-family: "Martian Mono", monospace;
+        font-optical-sizing: auto;
+        font-weight: weight;
+        font-style: normal;
+        font-variation-settings:
+            "wdth" 100;
+        color: #523334;
+    }
+
+
+}

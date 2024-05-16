@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ProductsList from "../components/products/products.list";
+import ProductsList from '../components/products/ProductsList'
 import {
   fetchProductsList
 } from "../services/GET";
@@ -17,28 +17,6 @@ export default function ProductsPage() {
   let category = searchParams.get("category");
   let tag = searchParams.get("tag");
 
-  const searchProducts = (selectedCategory, selectedBrand, selectedTag, searchValue) => {
-    fetchProductsList({ type: selectedCategory, brand: selectedBrand, tag: selectedTag, search: searchValue })
-      .then((response) => {
-        setLoading(false);
-        setDetails(response);
-        let filteredData = response.filter(product => {
-          let categoryMatch = selectedCategory ? product.category === selectedCategory : true;
-          let brandMatch = selectedBrand ? product.brand === selectedBrand : true;
-          let tagMatch = selectedTag ? product.tag === selectedTag : true;
-          let searchMatch = searchValue ? product.name.toLowerCase().includes(searchValue.toLowerCase()) : true;
-          return categoryMatch && brandMatch && tagMatch && searchMatch;
-        });
-        setFilteredDetails(filteredData);
-        console.log('selectedCategory: ', selectedCategory, 'selectedBrand: ', selectedBrand, 'selectedTag: ', selectedTag);
-
-      })
-      .catch((err) => {
-        console.error(err);
-        setLoading(false);
-      });
-  }
-
   useEffect(() => {
     fetchProductsList({ type: category, brand, tag, filter: filterUrl })
       .then((response) => {
@@ -52,13 +30,51 @@ export default function ProductsPage() {
       });
   }, [category, brand, tag, filterUrl]);
 
+  console.log(details);
+
+  const filterProducts = (selectedValues, details) => {
+
+    // const filteredbyBrand = details.filter(item => (item.brand === selectedBrand))
+    // const filteredbyCategory = details.filter(item => item.product_type === selectedCategory);
+    // const filteredbyTag = details.filter(item => item.tag_list.includes(selectedTag));
+
+    // const searchMatch = searchValue ? product.name.toLowerCase().includes(searchValue.toLowerCase())
+
+    let filteredDetails = details;
+
+    if (selectedValues.category) {
+      filteredDetails = filteredDetails.filter((detail) => detail.product_type === selectedValues.category);
+    }
+
+    if (selectedValues.brand) {
+      filteredDetails = filteredDetails.filter((detail) => detail.brand === selectedValues.brand);
+    }
+
+    if (selectedValues.tag) {
+      filteredDetails = filteredDetails.filter((detail) => detail.tag_list.includes(selectedValues.tag));
+    }
+
+    console.log(selectedValues, details);
+
+    return filteredDetails;
+
+
+
+
+  }
+
   return (
     <>
-      {filterUrl === "brands" ? <DataFilter searchProducts={searchProducts} filterType="catalog" /> : filterUrl === 'catalog' ? <DataFilter searchProducts={searchProducts} filterType="brands" /> : <DataFilter searchProducts={searchProducts} filterType="product_tags" />}
+      {filterUrl === "brands" ? <DataFilter filterProducts={filterProducts} filterUrl={filterUrl} brand={brand} /> : filterUrl === 'catalog' ? <DataFilter filterProducts={filterProducts} filterUrl={filterUrl} category={category} /> : <DataFilter filterProducts={filterProducts} filterUrl={filterUrl} tag={tag} />}
       {loading ? <Spin className='spin' /> : <ProductsList details={filteredDetails.length > 0 ? filteredDetails : details} />}
     </>
   );
 }
+
+// console.log('Products Page, details: ', details);
+// const filDetails = details.filter(item => item.brand === 'nyx');
+// const organicItems = details.filter(item => item.tag_list.includes('Organic'));
+// console.log('Products Page, filDetails: ', filDetails, 'tagDetails: ', organicItems);
 
 //----------------------without tags-------------------//
 

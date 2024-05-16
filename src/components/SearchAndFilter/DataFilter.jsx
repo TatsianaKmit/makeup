@@ -3,48 +3,61 @@ import types from "../../data/types.json";
 import brands from '../../data/brands.json'
 import tags from '../../data/tags.json'
 import { Select } from '@gravity-ui/uikit';
-import { useSearchContext } from "../../context/context";
+// import { useFilter } from '../../hooks/useFilter'
+import { useEffect } from "react";
 
 export default function DataFilter(props) {
-    const { searchProducts = Function.prototype, filterType } = props
-    const [selectedCategory, setSelectedCategory] = useState('')
-    const [selectedBrand, setSelectedBrand] = useState('')
-    const [selectedTag, setSelectedTag] = useState('')
-    const [searchValue, setSearchValue] = useState("");
-    const { isSearchVisible, toggleSearchVisibility } = useSearchContext()
+    const { filterUrl, category, brand, tag, filterProducts } = props
+    const [selectedValues, setSelectedValues] = useState({
+        category: '',
+        brand: '',
+        tag: '',
+    });
 
-    const handleCategoryFilter = (categoryValue) => {
-        setSelectedCategory(categoryValue);
-        searchProducts(categoryValue, selectedBrand, selectedTag, searchValue);
-    }
+    const handleSelectChange = (name, value) => {
+        setSelectedValues((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+        filterProducts(selectedValues);
+    };
 
-    const handleBrandFilter = (brandValue) => {
-        setSelectedBrand(brandValue);
-        searchProducts(selectedCategory, brandValue, selectedTag, searchValue);
-    }
 
-    const handleTagFilter = (tagValue) => {
-        setSelectedTag(tagValue);
-        searchProducts(selectedCategory, selectedBrand, tagValue, searchValue);
-    }
 
-    const handleSearch = () => {
-        searchProducts(selectedCategory, selectedBrand, selectedTag, searchValue);
-    }
+    // const [selectedCategory, setSelectedCategory] = useState('')
+    // const [selectedBrand, setSelectedBrand] = useState('')
+    // const [selectedTag, setSelectedTag] = useState('')
 
+
+
+    // const handleCategoryFilter = (categoryValue) => {
+    //     setSelectedCategory(categoryValue);
+    //     filterProducts(categoryValue);
+    // }
+
+    // const handleBrandFilter = (brandValue) => {
+    //     setSelectedBrand(brandValue);
+    //     filterProducts(brandValue);
+    // }
+
+    // const handleTagFilter = (tagValue) => {
+    //     setSelectedTag(tagValue);
+    //     filterProducts(tagValue);
+    // }
 
     return (
         <>
             <div className="filter-and-search">
                 <div className="filter">
-                    {filterType === "catalog" &&
+                    {filterUrl === "brands" &&
                         <>
                             <Select
                                 filterable={true}
                                 multiple={false}
                                 width={150}
                                 placeholder="Category"
-                                onUpdate={(categoryValue) => handleCategoryFilter(categoryValue)}
+                                value={selectedValues.category}
+                                onUpdate={(value) => handleSelectChange("category", value)}
                             >
                                 {
                                     types.map(category => (
@@ -58,7 +71,8 @@ export default function DataFilter(props) {
                                 multiple={false}
                                 width={150}
                                 placeholder="Tags"
-                                onUpdate={(tagValue) => handleTagFilter(tagValue)}
+                                value={selectedValues.tag}
+                                onUpdate={(value) => handleSelectChange("tag", value)}
                             >
                                 {
                                     tags.map(tag => (
@@ -70,14 +84,15 @@ export default function DataFilter(props) {
 
                     }
 
-                    {filterType === "brands" &&
+                    {filterUrl === "catalog" &&
                         <>
                             <Select
                                 filterable={true}
                                 multiple={false}
                                 width={150}
                                 placeholder="Brand"
-                                onUpdate={(brandValue) => handleBrandFilter(brandValue)}
+                                value={selectedValues.brand}
+                                onUpdate={(value) => handleSelectChange("brand", value)}
                             >
                                 {
                                     brands.map(brand => (
@@ -91,7 +106,8 @@ export default function DataFilter(props) {
                                 multiple={false}
                                 width={150}
                                 placeholder="Tags"
-                                onUpdate={(tagValue) => handleTagFilter(tagValue)}
+                                value={selectedValues.tag}
+                                onUpdate={(value) => handleSelectChange("tag", value)}
                             >
                                 {
                                     tags.map(tag => (
@@ -104,14 +120,15 @@ export default function DataFilter(props) {
 
                     }
 
-                    {filterType === "product_tags" &&
+                    {filterUrl === "product_tags" &&
                         <>
                             <Select
                                 filterable={true}
                                 multiple={false}
                                 width={150}
                                 placeholder="Brand"
-                                onUpdate={(brandValue) => handleBrandFilter(brandValue)}
+                                value={selectedValues.brand}
+                                onUpdate={(value) => handleSelectChange("brand", value)}
                             >
                                 {
                                     brands.map(brand => (
@@ -125,7 +142,8 @@ export default function DataFilter(props) {
                                 multiple={false}
                                 width={150}
                                 placeholder="Category"
-                                onUpdate={(categoryValue) => handleCategoryFilter(categoryValue)}
+                                value={selectedValues.category}
+                                onUpdate={(value) => handleSelectChange("category", value)}
                             >
                                 {
                                     types.map(category => (
@@ -135,25 +153,9 @@ export default function DataFilter(props) {
                             </Select>
                         </>
                     }
-
                 </div>
-                {
-                    isSearchVisible ? <div className="search-field">
-                        <input
-                            className="validate"
-                            placeholder="search brand or category"
-                            type="search"
-                            value={searchValue}
-                            onChange={(e) => setSearchValue(e.target.value)}
-                        />
-                        <button className="btn search-btn" onClick={handleSearch}>
-                            Search
-                        </button>
-                    </div> : null
-                }
-                <img src="assets/search.png" alt="search" className="header-search" onClick={toggleSearchVisibility} />
+
             </div>
         </>
     )
 }
-

@@ -21,7 +21,6 @@ export default function ProductsList({ details }) {
 
   return (
     <>
-      <h4>Products List</h4>
       <div className="products-container">
         <ul>
           <div className="product-types">

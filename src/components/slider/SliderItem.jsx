@@ -1,5 +1,4 @@
 import React from 'react'
-import data from '../data/tags.json'
 import { Link } from 'react-router-dom'
 import { Button } from '@gravity-ui/uikit'
 import { Card } from '@gravity-ui/uikit'
@@ -21,7 +20,6 @@ export const SliderItem = (props) => {
     return (
 
         <Card style={style} view="filed" type="container" size="l">
-
             <div className="slider-image">
                 <img src={img} alt={tag_name} />
             </div>
@@ -30,13 +28,7 @@ export const SliderItem = (props) => {
                     {tag_name}
                 </Link>
             </Button>
-
         </Card>
-
-        // <div className="card small #fce4ec pink lighten-5">
-
-        // </div>
-
     )
 }
 

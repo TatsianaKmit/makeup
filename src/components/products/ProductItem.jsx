@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { fetchProductsItem } from "../../services/GET";
 import { useParams } from "react-router-dom";
-import ProductColorsList from "./Product_Colors/ProductColorsList";
+import ProductColors from "./ProductColors";
 import { Spin } from "@gravity-ui/uikit";
 import { Card } from "@gravity-ui/uikit";
 
@@ -20,7 +20,6 @@ export default function ProductItem() {
     justifyContent: 'center',
     flexDirection: 'column'
   }
-
 
   useEffect(() => {
     fetchProductsItem(id).then((response) => {
@@ -41,9 +40,7 @@ export default function ProductItem() {
       {loading ? (
         <Spin />
       ) : (
-
         <Card style={style} view="filled" type="container" size="xl">
-
           <div className="card-headers">
             <span>{details.price}</span>
             <span>{details.brand}</span>
@@ -62,11 +59,19 @@ export default function ProductItem() {
           <div className="card-content">
             <p>{details.description}</p>
             <div className="product-colors">
-              <h5>Colours:</h5>
-              <ProductColorsList />
+              {
+                details.product_colors.length > 0 ?
+                  (
+                    <>
+                      <h5>Colours:</h5>
+                      <ProductColors />
+                    </>
+                  ) : (
+                    null
+                  )
+              }
             </div>
           </div>
-
         </Card>
       )}
     </>

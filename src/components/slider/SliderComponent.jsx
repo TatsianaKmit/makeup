@@ -2,7 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import data from '../data/tags.json'
+import data from '../../data/tags.json'
 import { SliderItem } from "./SliderItem";
 
 function Arrow(props) {
@@ -15,7 +15,6 @@ function Arrow(props) {
         />
     );
 }
-
 
 function MultipleItems() {
     const settings = {

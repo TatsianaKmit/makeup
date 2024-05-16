@@ -47,12 +47,3 @@ export default function ClassifierItem(props) {
 
   return <div>{classifierItem}</div>;
 }
-
-
-{/* <Link to={`/${path}`}>
-<div className="card #fce4ec pink lighten-5">
-  <div className="card-content black-text">
-    <span className="card-title">{brand_name}</span>
-  </div>
-</div>
-</Link> */}
