@@ -3,11 +3,12 @@ import types from "../../data/types.json";
 import brands from '../../data/brands.json'
 import tags from '../../data/tags.json'
 import { Select } from '@gravity-ui/uikit';
-// import { useFilter } from '../../hooks/useFilter'
 import { useEffect } from "react";
+import ProductsList from "../products/ProductsList";
+import { Spin } from "@gravity-ui/uikit";
 
 export default function DataFilter(props) {
-    const { filterUrl, category, brand, tag, details } = props
+    const { filterUrl, category, brand, tag, details, loading } = props
     const [selectedValues, setSelectedValues] = useState({
         category: '',
         brand: '',
@@ -17,18 +18,19 @@ export default function DataFilter(props) {
 
     const [selectBrand, setSelectBrand] = useState([])
     const [selectTag, setSelectTag] = useState([])
+    const [selectCategory, setSelectCategory] = useState([])
 
     const [filterArrayState, setFilterArrayState] = useState([])
 
     function filterProductsFunc(array, selectedValues, type) {
-       
+
         const filterArray = array.filter((item) => {
-            if(Array.isArray(item[type])) {
-              return  item.tag_list.includes(selectedValues[0])
+            if (Array.isArray(item[type])) {
+                return item.tag_list.includes(selectedValues[0])
             } else {
-             return item[type] === selectedValues[0]
+                return item[type] === selectedValues[0]
             }
-           
+
         });
         return filterArray;
     }
@@ -36,11 +38,11 @@ export default function DataFilter(props) {
     console.log(filterArrayState)
 
     useEffect(() => {
-        setFilterArrayState(filterProductsFunc(details, selectBrand, "brand"))    
-        if(selectTag.length > 0) {
-            setFilterArrayState(filterProductsFunc(filterArrayState, selectTag, "tag_list"))    
+        setFilterArrayState(filterProductsFunc(details, selectBrand, "brand"))
+        if (selectTag.length > 0) {
+            setFilterArrayState(filterProductsFunc(filterArrayState, selectTag, "tag_list"))
         }
-    }, [selectBrand, selectTag, filterArrayState, details])
+    }, [selectBrand, selectTag])
 
 
     const handleSelectChange = (name, value) => {
@@ -50,27 +52,6 @@ export default function DataFilter(props) {
         }));
         // filterProducts(selectedValues);
     };
-
-    // const [selectedCategory, setSelectedCategory] = useState('')
-    // const [selectedBrand, setSelectedBrand] = useState('')
-    // const [selectedTag, setSelectedTag] = useState('')
-
-
-
-    // const handleCategoryFilter = (categoryValue) => {
-    //     setSelectedCategory(categoryValue);
-    //     filterProducts(categoryValue);
-    // }
-
-    // const handleBrandFilter = (brandValue) => {
-    //     setSelectedBrand(brandValue);
-    //     filterProducts(brandValue);
-    // }
-
-    // const handleTagFilter = (tagValue) => {
-    //     setSelectedTag(tagValue);
-    //     filterProducts(tagValue);
-    // }
 
     return (
         <>
@@ -83,8 +64,8 @@ export default function DataFilter(props) {
                                 multiple={false}
                                 width={150}
                                 placeholder="Category"
-                                value={selectedValues.category}
-                                onUpdate={(value) => handleSelectChange("category", value)}
+                                value={selectCategory}
+                                onUpdate={(value) => setSelectCategory(value)}
                             >
                                 {
                                     types.map(category => (
@@ -133,7 +114,7 @@ export default function DataFilter(props) {
                                 multiple={false}
                                 width={150}
                                 placeholder="Tags"
-                                value={selectedValues.tag}
+                                value={selectTag}
                                 onUpdate={(value) => setSelectTag(value)}
                             >
                                 {
@@ -154,7 +135,7 @@ export default function DataFilter(props) {
                                 multiple={false}
                                 width={150}
                                 placeholder="Brand"
-                                value={selectedValues.brand}
+                                value={selectBrand}
                                 onUpdate={(value) => setSelectBrand(value)}
                             >
                                 {
@@ -169,8 +150,8 @@ export default function DataFilter(props) {
                                 multiple={false}
                                 width={150}
                                 placeholder="Category"
-                                value={selectedValues.category}
-                                onUpdate={(value) => handleSelectChange("category", value)}
+                                value={selectCategory}
+                                onUpdate={(value) => setSelectCategory(value)}
                             >
                                 {
                                     types.map(category => (
@@ -183,6 +164,7 @@ export default function DataFilter(props) {
                 </div>
 
             </div>
+            {loading ? <Spin className='spin' /> : <ProductsList details={filterArrayState.length > 0 ? filterArrayState : details} />}
         </>
     )
 }

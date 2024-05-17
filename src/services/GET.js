@@ -1,6 +1,4 @@
-import typesData from '../data/types.json'
-
-export const fetchProductsList = async ({ type, brand, tag, filter }) => {
+export const fetchProductsList = async ({ type, brand, tag, filter, search }) => {
   try {
     let url = "";
     if (filter === "brands") {
@@ -10,10 +8,10 @@ export const fetchProductsList = async ({ type, brand, tag, filter }) => {
     } else if (filter === "product_tags") {
       url = `http://makeup-api.herokuapp.com/api/v1/products.json?product_tags=${tag}`;
     }
-    // else if (filter === "all") {
-    //   url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}&product_type=${type}&product_tags=${tag}`
-    // }
-    // console.log('GET.js filter', filter, 'type: ', type, 'brand: ', brand, 'tag: ', tag);
+    else if (filter === "search") {
+      url = `http://makeup-api.herokuapp.com/api/v1/products.json`
+    }
+    console.log('GET.js filter', filter, 'type: ', type, 'brand: ', brand, 'tag: ', tag, 'search', search)
     const response = await fetch(url);
     return await response.json();
   } catch (err) {
