@@ -33,7 +33,7 @@ export default function ProductsPage(props) {
         console.error(err);
         setLoading(false);
       });
-  }, [category, brand, tag, filterUrl, search, setFilterToSearch]);
+  }, [category, brand, tag/* , filterUrl, search, setFilterToSearch */]);
 
   return (
     <>

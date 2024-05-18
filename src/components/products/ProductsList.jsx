@@ -19,6 +19,8 @@ export default function ProductsList({ details }) {
     setImageLoading(false);
   };
 
+  // console.log(details)
+
   return (
     <>
       <div className="products-container">

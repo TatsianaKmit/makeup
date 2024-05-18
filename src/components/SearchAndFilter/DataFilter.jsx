@@ -9,49 +9,29 @@ import { Spin } from "@gravity-ui/uikit";
 
 export default function DataFilter(props) {
     const { filterUrl, category, brand, tag, details, loading } = props
-    const [selectedValues, setSelectedValues] = useState({
-        category: '',
-        brand: '',
-        tag: '',
-    });
-
 
     const [selectBrand, setSelectBrand] = useState([])
     const [selectTag, setSelectTag] = useState([])
     const [selectCategory, setSelectCategory] = useState([])
 
+    const [detailsState, setDetailsState] = useState([])
+
     const [filterArrayState, setFilterArrayState] = useState([])
 
-    function filterProductsFunc(array, selectedValues, type) {
-
-        const filterArray = array.filter((item) => {
-            if (Array.isArray(item[type])) {
-                return item.tag_list.includes(selectedValues[0])
-            } else {
-                return item[type] === selectedValues[0]
-            }
-
-        });
-        return filterArray;
+    if(JSON.stringify(detailsState) !== JSON.stringify(details)) {
+        setDetailsState(details)
     }
 
-    console.log(filterArrayState)
-
     useEffect(() => {
-        setFilterArrayState(filterProductsFunc(details, selectBrand, "brand"))
-        if (selectTag.length > 0) {
-            setFilterArrayState(filterProductsFunc(filterArrayState, selectTag, "tag_list"))
+        if(detailsState.length > 0) {
+            const filterArrayBoth = detailsState.filter(item => item.brand === selectBrand[0] && item.tag_list.includes(selectTag[0]))
+            const filterArrayBrand = detailsState.filter(item => item.brand === selectBrand[0])
+            const filterArrayTag = detailsState.filter(item => item.tag_list.includes(selectTag[0]))
+           setFilterArrayState(selectBrand.length > 0 && selectTag.length > 0 ? filterArrayBoth : selectBrand.length > 0 && selectTag.length === 0 ? filterArrayBrand : filterArrayTag)
         }
-    }, [selectBrand, selectTag])
+    }, [selectBrand, selectTag, detailsState])
 
-
-    const handleSelectChange = (name, value) => {
-        setSelectedValues((prev) => ({
-            ...prev,
-            [name]: value,
-        }));
-        // filterProducts(selectedValues);
-    };
+    console.log(filterUrl)
 
     return (
         <>
