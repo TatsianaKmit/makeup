@@ -1,52 +1,52 @@
 [
   {
     "id": 0,
-    "name": "Blush",
+    "name": "blush",
     "img": "https://colourpop.com/cdn/shop/products/6676173783122-Just-A-Flush-CheekPalette-JustAFlush-1.jpg?v=1668567868&width=988"
   },
   {
     "id": 1,
-    "name": "Bronzer",
+    "name": "bronzer",
     "img": "https://colourpop.com/cdn/shop/products/6884173054034-Pressed-Powder-Bronzer-Parent-PPBronzer-2.jpg?v=1668574051&width=988"
   },
   {
     "id": 2,
-    "name": "Eyebrow",
+    "name": "eyebrow",
     "img": "https://colourpop.com/cdn/shop/products/6579909722194-Tinted-Brow-Wax-_-Spoolie-Bundle-TintedFEBrowDuo-3.jpg?v=1668566373&width=988"
   },
   {
     "id": 3,
-    "name": "Eyeliner",
+    "name": "eyeliner",
     "img": "https://colourpop.com/cdn/shop/files/Vampire_631.jpg?v=1704914944&width=988"
   },
   {
     "id": 4,
-    "name": "Eyeshadow",
+    "name": "eyeshadow",
     "img": "https://colourpop.com/cdn/shop/products/6779194409042-Feelin_-Bubbly-EyePalette-FeelinBubbly-1.jpg?v=1669315425&width=988"
   },
   {
     "id": 5,
-    "name": "Foundation",
+    "name": "foundation",
     "img": "https://colourpop.com/cdn/shop/products/6924448759890-Hydrating-Prime-_-Set-Bundle-HydratingPrime_Set-1.jpg?v=1668577237&width=988"
   },
   {
     "id": 6,
-    "name": "Lip liner",
+    "name": "lip liner",
     "img": "https://colourpop.com/cdn/shop/files/Pout-It-Out-Bundle_0729a3ac-6612-49f3-a29c-8f41243eb9f8.jpg?v=1708460384&width=988"
   },
   {
     "id": 7,
-    "name": "Lipstick",
+    "name": "lipstick",
     "img": "https://colourpop.com/cdn/shop/files/11_11-Collection-Lux-Lips-Stylized-Into.jpg?v=1695152263&width=988"
   },
   {
     "id": 8,
-    "name": "Mascara",
+    "name": "mascara",
     "img": "https://colourpop.com/cdn/shop/files/BFFMascara-PinkInc-0324.jpg?v=1708460079&width=988"
   },
   {
     "id": 9,
-    "name": "Nail polish",
+    "name": "nail polish",
     "img": "https://m.media-amazon.com/images/I/61dub5qhjML._AC_UF1000,1000_QL80_.jpg"
   }
 ]

@@ -9,7 +9,7 @@ export default function ProductsPage(props) {
   const [details, setDetails] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  console.log('Products Page', searchValue);
+
 
   const searchParams = new URLSearchParams(window.location.search);
   const filterUrl = searchParams.get("filter");
@@ -21,7 +21,6 @@ export default function ProductsPage(props) {
   const setFilterToSearch = (searhValue) => {
     setSearch(searchValue)
   }
-
 
   useEffect(() => {
     fetchProductsList({ type: category, brand, tag, filter: filterUrl, search: searchValue })
@@ -37,7 +36,7 @@ export default function ProductsPage(props) {
 
   return (
     <>
-      {filterUrl === "brands" ? <DataFilter details={details} filterUrl={filterUrl} brand={brand} loading={loading} /> : filterUrl === 'catalog' ? <DataFilter details={details} filterUrl={filterUrl} category={category} loading={loading} /> : <DataFilter details={details} filterUrl={filterUrl} tag={tag} loading={loading} />}
+      {filterUrl === "brands" ? <DataFilter details={details} filterUrl={filterUrl} loading={loading} /> : filterUrl === 'catalog' ? <DataFilter details={details} filterUrl={filterUrl} loading={loading} /> : <DataFilter details={details} filterUrl={filterUrl} loading={loading} />}
     </>
   );
 }

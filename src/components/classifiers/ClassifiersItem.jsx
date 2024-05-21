@@ -19,7 +19,6 @@ export default function ClassifierItem(props) {
     flexDirection: 'column'
   }
 
-
   if (isTypes) {
     classifierItem = (
       <Card style={style} view="filed" type="container" size="l">
