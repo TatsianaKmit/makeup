@@ -153,7 +153,9 @@ export default function DataFilter(props) {
                 </div>
 
             </div>
-            {loading ? <Spin className='spin' /> : <ProductsList details={filterArrayState.length > 0 ? filterArrayState : details} />}
+            {loading ? <Spin className='spin' /> : 
+            <ProductsList 
+            details={selectTag.length > 0 || selectBrand.length > 0 || selectCategory.length > 0 ? filterArrayState : details} />}
         </>
     )
 }
