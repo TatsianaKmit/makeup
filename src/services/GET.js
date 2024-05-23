@@ -1,4 +1,4 @@
-export const fetchProductsList = async ({ type, brand, tag, filter, search }) => {
+export const fetchProductsList = async ({ type, brand, tag, filter }) => {
   try {
     let url = "";
     if (filter === "brands") {

@@ -14,31 +14,27 @@ export default function Header() {
   const [details, setDetails] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   fetchProductsList({ search: searchValue })
-  //     .then((response) => {
-  //       setLoading(false);
-  //       setDetails(response);
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //       setLoading(false);
-  //     });
-  //   console.log(details);
-  // }, [searchValue])
+  useEffect(() => {
+    fetchProductsList({ filter: searchValue })
+      .then((response) => {
+        setLoading(false);
+        setDetails(response);
+      })
+      .catch((err) => {
+        console.error(err);
+        setLoading(false);
+      });
+    console.log(details);
+  }, [searchValue])
 
   const searchProducts = (details) => {
-
     const searchedDetails = details.filter(item => item.name.toLowerCase().includes(searchValue.toLowerCase()));
     return searchedDetails
-
   }
 
   const handleSearch = () => {
     searchProducts(details);
   }
-
-  console.log(searchProducts);
 
   return (
     <>
@@ -71,7 +67,7 @@ export default function Header() {
           isSearchVisible ? <div className="search-field">
             <TextInput
               className="validate"
-              placeholder="search brand or category"
+              placeholder="search by name"
               type="search"
               value={searchValue}
               onChange={(e) => setSearchValue(e.target.value)}
@@ -81,8 +77,7 @@ export default function Header() {
         }
         <Magnifier className="header-search" onClick={toggleSearchVisibility} size='xl' />
       </div>
-      {searchValue ? <ProductsPage searchValue={searchValue} handleSearch={handleSearch} searchProducts={searchProducts} /> : null}
+      {searchValue ? <ProductsPage details={details} searchValue={searchValue} handleSearch={handleSearch} searchProducts={searchProducts} /> : null}
     </>
-
   );
 }
