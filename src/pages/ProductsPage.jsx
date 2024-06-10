@@ -36,7 +36,9 @@ export default function ProductsPage(props) {
 
   return (
     <>
-      {filterUrl === "brands" ? <DataFilter details={details} filterUrl={filterUrl} loading={loading} /> : filterUrl === 'catalog' ? <DataFilter details={details} filterUrl={filterUrl} loading={loading} /> : <DataFilter details={details} filterUrl={filterUrl} loading={loading} />}
+      <div className="products-page">
+        {filterUrl === "brands" ? <DataFilter details={details} filterUrl={filterUrl} loading={loading} /> : filterUrl === 'catalog' ? <DataFilter details={details} filterUrl={filterUrl} loading={loading} /> : <DataFilter details={details} filterUrl={filterUrl} loading={loading} />}
+      </div>
     </>
   );
 }

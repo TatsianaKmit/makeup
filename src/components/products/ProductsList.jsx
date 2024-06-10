@@ -21,9 +21,9 @@ export default function ProductsList({ details }) {
 
   return (
     <>
-      <div className="products-container">
+      <div className="products-list__container">
         <ul>
-          <div className="product-types">
+          <div className="products-list__item-small">
             {details.length === 0 ? (
               <p>No products found.</p>
             ) : (
@@ -32,7 +32,7 @@ export default function ProductsList({ details }) {
                   <Link to={`/product/${detail.id}`}>
                     <Card style={style} view="outlined" type="container" size="l">
                       {imageLoading && <Spin className='spin' />}
-                      <div className="card-image">
+                      <div className="products-list__photo">
                         <img
                           src={detail.image_link}
                           alt={detail.name}
@@ -43,7 +43,7 @@ export default function ProductsList({ details }) {
                           onLoad={handleImageLoad}
                         />
                       </div>
-                      <div className="card-content">
+                      <div className="products-list__card-titles">
                         <p>{detail.name}</p>
                         <p>{detail.brand}</p>
                         <p>{detail.price}</p>

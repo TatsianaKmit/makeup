@@ -1,0 +1,33 @@
+@use './style/base/reset.scss';
+@use './style/base/media';
+@use './style/base/variables';
+@use './style/base/mixines';
+
+@use './style/blocks';
+@use './style/pages';
+
+///Oxygen
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.app-container {
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 90%;
+}
+
+
+.main-container {
+  min-height: calc(100vh - 100px - 100px);
+}

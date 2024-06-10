@@ -20,7 +20,10 @@ export default function ClassifiersPage({ type }) {
 
     return (
         <>
-            {loading ? <Spin className='spin' /> : <ClassifiersList isTypes={isTypes} />}
+            <div className="classifiers-page">
+                {loading ? <Spin className='spin' /> : <ClassifiersList isTypes={isTypes} />}
+            </div>
+
         </>
     );
 }

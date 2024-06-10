@@ -13,7 +13,7 @@ export default function ProductColors() {
   }, [id]);
 
   return (
-    <div className="product_colours">
+    <div className="products-list__colors">
       {colours.map((colour) => (
         <div
           style={{
@@ -25,7 +25,7 @@ export default function ProductColors() {
             margin: '3px',
           }}
           title={colour.colour_name}
-          className="product_colour"
+          className="products-list__color"
         >
         </div>
       ))}

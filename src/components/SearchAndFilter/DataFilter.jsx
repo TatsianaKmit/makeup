@@ -44,8 +44,8 @@ export default function DataFilter(props) {
 
     return (
         <>
-            <div className="filter-and-search">
-                <div className="filter">
+            <div className="products-page__container">
+                <div className="products-page__filter">
                     {filterUrl === "brands" &&
                         <>
                             <Select
@@ -153,9 +153,9 @@ export default function DataFilter(props) {
                 </div>
 
             </div>
-            {loading ? <Spin className='spin' /> : 
-            <ProductsList 
-            details={selectTag.length > 0 || selectBrand.length > 0 || selectCategory.length > 0 ? filterArrayState : details} />}
+            {loading ? <Spin className='spin' /> :
+                <ProductsList
+                    details={selectTag.length > 0 || selectBrand.length > 0 || selectCategory.length > 0 ? filterArrayState : details} className="products-list" />}
         </>
     )
 }

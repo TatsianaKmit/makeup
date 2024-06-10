@@ -6,7 +6,7 @@ import { Card } from "@gravity-ui/uikit";
 export default function ClassifierItem(props) {
   const { name, img, brand_name, isTypes } = props;
 
-  let path = isTypes ? `products?filter=catalog&category=${name}` : `products?filter=brands&brand=${brand_name}`;
+  const path = isTypes ? `products?filter=catalog&category=${name}` : `products?filter=brands&brand=${brand_name}`;
 
   let classifierItem;
 
@@ -22,7 +22,7 @@ export default function ClassifierItem(props) {
   if (isTypes) {
     classifierItem = (
       <Card style={style} view="filed" type="container" size="l">
-        <div className="card-image">
+        <div className="product-types__photo">
           <img src={img} alt={name} />
         </div>
         <Button view="flat-contrast" size="l">
@@ -34,12 +34,12 @@ export default function ClassifierItem(props) {
     );
   } else {
     classifierItem = (
-      <div>
-        <Link to={`/${path}`}>
-          <Button view="normal" size="l" >
+      <div >
+        <Button view="normal" size="l" className="product-brands__button">
+          <Link to={`/${path}`} >
             {brand_name}
-          </Button>
-        </Link>
+          </Link>
+        </Button>
       </div>
     );
   }

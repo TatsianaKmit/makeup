@@ -9,7 +9,7 @@ export default function ClassifiersList({ isTypes }) {
     classifierList = (
       <div className="product-types">
         {types.map((type) => (
-          <ClassifierItem key={type.id} {...type} isTypes={isTypes} />
+          <ClassifierItem key={type.id} {...type} isTypes={isTypes} className="product-type" />
         ))}
       </div>
     );
@@ -17,7 +17,7 @@ export default function ClassifiersList({ isTypes }) {
     classifierList = (
       <div className="product-brands">
         {brands.map((brand) => (
-          <ClassifierItem key={brand.id} {...brand} isTypes={isTypes} />
+          <ClassifierItem key={brand.id} {...brand} isTypes={isTypes} className="product-brand" />
         ))}
       </div>
     );

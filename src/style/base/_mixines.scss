@@ -1,0 +1,29 @@
+@use './variables';
+
+// font-family
+
+@mixin headerFont {
+    font-family: variables.$fontFamilyHeader;
+    font-optical-sizing: variables.$fontOpticalSizing;
+    font-weight: variables.$fontWeight;
+    font-style: variables.$fontStyle;
+    font-variation-settings: variables.$fontVariationSettings;
+}
+
+@mixin mainFont {
+    font-family: variables.$fontFamilyMain;
+    font-optical-sizing: variables.$fontOpticalSizing;
+    font-weight: variables.$fontWeight;
+    font-style: variables.$fontStyle;
+    font-variation-settings: variables.$fontVariationSettings;
+}
+
+@mixin mainFont2 {
+    font-family: variables.$fontFamilyMain2;
+    font-weight: 300;
+    font-style: variables.$fontStyle;
+}
+
+// header and footer links 
+
+// landing & contact form black button
