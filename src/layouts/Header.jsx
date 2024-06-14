@@ -36,46 +36,48 @@ export default function Header() {
 
   return (
     <>
-      <div className="header">
-        <NavLink to={"/"} className="header__logo">
-          <img src="assets/logo.png" alt="logo" />
-        </NavLink>
-        <div className="header__links">
-          <NavLink to={"/"} className="header__link">
-            Home
+      <div className="page-container">
+        <div className="header">
+          <NavLink to={"/"} className="header__logo">
+            <img src="assets/logo.png" alt="logo" />
           </NavLink>
-          <NavLink to={"/about"} className="header__link">
-            About
-          </NavLink>
+          <div className="header__links">
+            <NavLink to={"/"} className="header__link">
+              Home
+            </NavLink>
+            <NavLink to={"/about"} className="header__link">
+              About
+            </NavLink>
+            {
+              !isSearchVisible && (
+                <>
+                  <NavLink to={"/catalog"} className="header__link">
+                    Products
+                  </NavLink>
+                  <NavLink to={"/brands"} className="header__link">
+                    Brands
+                  </NavLink>
+                  <NavLink to={"/contact"} className="header__link">
+                    Contact
+                  </NavLink>
+                </>
+              )
+            }
+          </div>
           {
-            !isSearchVisible && (
-              <>
-                <NavLink to={"/catalog"} className="header__link">
-                  Products
-                </NavLink>
-                <NavLink to={"/brands"} className="header__link">
-                  Brands
-                </NavLink>
-                <NavLink to={"/contact"} className="header__link">
-                  Contact
-                </NavLink>
-              </>
-            )
+            isSearchVisible ? <div className="header search-form">
+              <TextInput
+                className="validate"
+                placeholder="search by name"
+                type="search"
+                value={searchValue}
+                onChange={(e) => setSearchValue(e.target.value)}
+              />
+              <Button className="header search-form__button" onClick={handleSearch} >Go</Button>
+            </div> : null
           }
+          <Magnifier className="header search-form__icon" onClick={toggleSearchVisibility} size='xl' />
         </div>
-        {
-          isSearchVisible ? <div className="header search-form">
-            <TextInput
-              className="validate"
-              placeholder="search by name"
-              type="search"
-              value={searchValue}
-              onChange={(e) => setSearchValue(e.target.value)}
-            />
-            <Button className="header search-form__button" onClick={handleSearch} >Go</Button>
-          </div> : null
-        }
-        <Magnifier className="header search-form__icon" onClick={toggleSearchVisibility} size='xl' />
       </div>
       {searchValue ? <ProductsPage details={details} searchValue={searchValue} handleSearch={handleSearch} searchProducts={searchProducts} /> : null}
     </>

@@ -20,7 +20,7 @@ export const SliderItem = (props) => {
     return (
 
         <Card style={style} view="filed" type="container" size="l">
-            <div className="slider-image">
+            <div className="slider-tags__photo">
                 <img src={img} alt={tag_name} />
             </div>
             <Button view="flat-contrast" size="l">

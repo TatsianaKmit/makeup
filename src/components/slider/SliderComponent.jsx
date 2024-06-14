@@ -55,7 +55,7 @@ function MultipleItems() {
     }
 
     return (
-        <div className="container">
+        <div className="slider-tags__container">
             <Slider {...settings}>
                 {data.map((item) => (
                     <SliderItem key={item.id} {...item} />

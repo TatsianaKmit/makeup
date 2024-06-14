@@ -11,8 +11,8 @@ export default function ClassifierItem(props) {
   let classifierItem;
 
   const style = {
-    width: '250px',
-    height: '250px',
+    width: '230px',
+    height: '230px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',

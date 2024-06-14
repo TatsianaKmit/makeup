@@ -1,0 +1,127 @@
+@media (max-width: 1440px) {}
+
+
+@media (max-width: 1200px) {
+    .page {
+        &-container {
+            max-width: 960px;
+
+            &-content {
+                max-width: 900px;
+            }
+        }
+    }
+
+    .section1__text-container {
+        flex-basis: 50%;
+    }
+}
+
+@media (max-width: 992px) {
+    .page {
+        &-container {
+            max-width: 720px;
+
+            &-content {
+                max-width: 680px;
+            }
+        }
+    }
+
+    .contact-page {
+        .form {
+            &__container {
+                max-width: 720px;
+            }
+
+            &__content {
+                &-wrapper {
+                    margin: 10px;
+                }
+            }
+        }
+    }
+
+    .about-page {
+        &__wrapper {
+            grid-template-columns: 1fr;
+            grid-template-rows: 0.8fr 0fr 0.4fr;
+        }
+
+        &__titles {
+            margin-bottom: 20px;
+        }
+    }
+
+    .section1__text-container {
+        flex-basis: 60%;
+    }
+}
+
+@media (max-width: 768px) {
+    .section1__text-container {
+        flex-basis: 80%;
+    }
+
+    .page {
+        &-container {
+            max-width: 540px;
+
+            &-content {
+                max-width: 500px;
+            }
+        }
+    }
+
+    .contact-page {
+        .form {
+            &__container {
+                max-width: 540px;
+            }
+
+            &__content {
+                &-wrapper {
+                    margin: 10px;
+                }
+            }
+        }
+    }
+
+    .landing-page {
+        h2 {
+            font-size: 1.5rem;
+
+            .line-break {
+                display: block;
+                margin: 0 auto;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .page {
+        &-container {
+            max-width: 100%;
+
+            &-content {
+                max-width: 100%;
+                padding: 0 10px;
+            }
+        }
+    }
+
+    .contact-page {
+        .form {
+            &__container {
+                max-width: 100%;
+            }
+
+            &__content {
+                &-wrapper {
+                    margin: 10px;
+                }
+            }
+        }
+    }
+}

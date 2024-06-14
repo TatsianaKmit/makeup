@@ -4,12 +4,10 @@ import { TextInput, Button } from '@gravity-ui/uikit'
 export default function ContactPage() {
     return (
         <div className='contact-page'>
-            <div className='form'>
+            <div className='form__container'>
                 <div className='form__content'>
-                    <div className='form__content-container'>
-                        <div className='title-wrapper'>
-                            <h2>Contact Us</h2>
-                        </div>
+                    <div className='form__content-wrapper'>
+                        <h2>Contact Us</h2>
                         <TextInput className='form__input' placeholder='Name' />
                         <TextInput className='form__input' placeholder='Phone' />
                         <TextInput className='form__input' placeholder='Email' />
@@ -18,10 +16,11 @@ export default function ContactPage() {
                             Send
                         </Button>
                     </div>
+                    <div className='form__photo'>
+                        <img src='./assets/contact1.jpg' />
+                    </div>
                 </div>
-                <div className='form__photo'>
-                    <img src='./assets/contact1.jpg' />
-                </div>
+
             </div>
         </div>
     )

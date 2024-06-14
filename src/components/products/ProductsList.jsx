@@ -7,8 +7,8 @@ export default function ProductsList({ details }) {
   const [imageLoading, setImageLoading] = useState(true);
 
   const style = {
-    width: '250px',
-    height: '250px',
+    width: '230px',
+    height: '230px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -21,9 +21,9 @@ export default function ProductsList({ details }) {
 
   return (
     <>
-      <div className="products-list__container">
+      <div>
         <ul>
-          <div className="products-list__item-small">
+          <div className="products-list__container">
             {details.length === 0 ? (
               <p>No products found.</p>
             ) : (
@@ -43,7 +43,7 @@ export default function ProductsList({ details }) {
                           onLoad={handleImageLoad}
                         />
                       </div>
-                      <div className="products-list__card-titles">
+                      <div className="products-list__titles">
                         <p>{detail.name}</p>
                         <p>{detail.brand}</p>
                         <p>{detail.price}</p>

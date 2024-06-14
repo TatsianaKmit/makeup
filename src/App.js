@@ -21,27 +21,27 @@ function App() {
   return (
     <>
       <ThemeProvider theme="light">
-        <div className="app-container">
-          <SearchProvider>
-            <Routes>
-              <Route path="/" element={<Layout />}>
-                <Route index element={<LandingPage />} />
 
-                <Route path="about" element={<AboutPage />} />
+        <SearchProvider>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<LandingPage />} />
 
-                <Route path="brands" element={<ClassifiersPage type="brands" />} />
-                <Route path="catalog" element={<ClassifiersPage type="catalog" />} />
+              <Route path="about" element={<AboutPage />} />
 
-                <Route path="products" element={<ProductsPage />} />
-                <Route path="product/:id" element={<ProductItem />} />
+              <Route path="brands" element={<ClassifiersPage type="brands" />} />
+              <Route path="catalog" element={<ClassifiersPage type="catalog" />} />
 
-                <Route path="contact" element={<ContactPage />} />
+              <Route path="products" element={<ProductsPage />} />
+              <Route path="product/:id" element={<ProductItem />} />
 
-                <Route path="*" element={<PageNotFound />} />
-              </Route>
-            </Routes>
-          </SearchProvider>
-        </div>
+              <Route path="contact" element={<ContactPage />} />
+
+              <Route path="*" element={<PageNotFound />} />
+            </Route>
+          </Routes>
+        </SearchProvider>
+
       </ThemeProvider>
     </>
   );

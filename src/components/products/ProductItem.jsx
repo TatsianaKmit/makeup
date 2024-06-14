@@ -41,14 +41,14 @@ export default function ProductItem() {
         <Spin />
       ) : (
         <Card style={style} view="filled" type="container" size="xl">
-          <div className="products-list__item-big">
+          <div className="products-list__details">
             <span>{details.price}</span>
             <span>{details.brand}</span>
             <span>{details.category}</span>
             <span>{details.product_type}</span>
             <span>{details.name}</span>
           </div>
-          <div className="products-list__photo_big">
+          <div className="products-list__photo_enlarged">
             {imageLoading && <Spin className='spin' />}
             {(details.image_link && details.image_link !== "ERROR") ? (
               <img src={details.image_link} onLoad={handleImageLoad} onError={() => { details.image_link = "ERROR"; setDetails({ ...details }) }} />

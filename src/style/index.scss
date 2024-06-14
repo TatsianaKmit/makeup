@@ -1,10 +1,11 @@
-@use './style/base/reset.scss';
-@use './style/base/media';
-@use './style/base/variables';
-@use './style/base/mixines';
+@use './base/reset.scss';
+@use './base/variables';
+@use './base/mixines';
 
-@use './style/blocks';
-@use './style/pages';
+@use './pages/blocks';
+@use './pages/pages';
+
+@use './pages/media';
 
 ///Oxygen
 
@@ -19,12 +20,6 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
-
-.app-container {
-  margin: 0 auto;
-  max-width: 1280px;
-  width: 90%;
 }
 
 
