@@ -97,45 +97,39 @@
 //about-page
 
 .about-page {
+    padding-top: 20px;
+
     &__wrapper {
         display: grid;
-        grid-template-columns: 1fr 0.8fr;
-        grid-template-rows: minmax(245px, auto) minmax(255px, auto);
-        grid-auto-rows: minmax(245px, auto);
-        column-gap: 50px;
-        row-gap: 40px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 0.1fr 0.4fr 0.5fr;
+        gap: 40px;
     }
 
-    &__description {
-        display: flex;
-        flex-direction: column;
-        grid-row: 1/3;
-    }
+    &__description {}
 
     &__text {
         text-align: justify;
+        grid-row: 2/4;
 
         >span {
             display: block;
             margin: 10px 0;
         }
-    }
-
-    &__titles {
-        margin-bottom: 100px;
 
         >h4 {
-            margin-top: 20px;
+            margin: 0 0 20px 0;
         }
     }
 
+    &__titles {
+        grid-column: 1/3;
+    }
+
     &__photo {
-        // height: auto;
         width: 100%;
 
-
         img {
-            // width: 100%;
             object-fit: cover;
         }
     }
@@ -151,6 +145,9 @@
     }
 
     &__card {
+        @extend .about-page__titles;
+        grid-column-start: 2;
+
         >h4 {
             text-align: center;
         }
@@ -159,11 +156,17 @@
 
 // classifiers-page
 
+.classifiers {
+    &-page {
+        @extend .about-page;
+    }
+}
+
 .product {
     &-types {
         display: grid;
         grid-template-columns: repeat(auto-fill, 230px);
-        place-items: center;
+        justify-content: center;
         gap: 0.5rem;
 
         &__photo {
@@ -195,6 +198,8 @@
 // products-page
 
 .products-page {
+    @extend .about-page;
+
     &__filter {
         margin-bottom: 30px;
     }
@@ -231,18 +236,23 @@
 // contact-page
 
 .contact-page {
+    @extend .about-page;
+
     .form {
         &__container {
             width: 800px;
             margin: 0 auto;
         }
 
-        &__content {
-            display: flex;
+        &__title {
+            grid-column: 1/3;
+        }
 
-            &-wrapper {
-                margin: 20px;
-            }
+        &__wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 0.1fr 0.9fr;
+            gap: 20px;
         }
 
         &__input {
@@ -254,8 +264,11 @@
         }
 
         &__photo {
-            max-width: 400px;
-            margin: 55px 0px;
+            width: 100%;
+
+            img {
+                object-fit: cover;
+            }
         }
     }
 }

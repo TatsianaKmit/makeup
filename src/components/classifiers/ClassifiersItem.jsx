@@ -35,11 +35,13 @@ export default function ClassifierItem(props) {
   } else {
     classifierItem = (
       <div >
-        <Button view="normal" size="l" className="product-brands__button">
-          <Link to={`/${path}`} >
+        <Link to={`/${path}`} >
+          <Button view="normal" size="l" className="product-brands__button">
             {brand_name}
-          </Link>
-        </Button>
+          </Button>
+
+        </Link>
+
       </div>
     );
   }
