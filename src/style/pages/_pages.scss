@@ -27,20 +27,24 @@
 .lipstick {
     background: url('../../../public/assets/landing1.jpg') center (center/cover) no-repeat;
     min-height: 600px;
+    display: flex;
+    align-items: center;
 
     &__text {
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
-        flex-basis: 20%;
+        height: 140px;
+        justify-content: space-between;
 
         &-wrapper {
-            min-height: 300px;
+            min-height: 325px;
             width: 600px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            flex-basis: 40%;
+            display: grid;
+            align-items: center;
+        }
+
+        .subtitle {
+            font-size: 1.07rem;
         }
     }
 
@@ -59,20 +63,47 @@
 
 .powder {
     background-color: variables.$landingSectionColorPinkWarm;
+    height: 540px;
+
+    // .page {
+    //     &-container {
+    //         &-content {
+    //             margin: unset;
+    //         }
+    //     }
+    // }
+
+    &__wrapper {
+        height: 480px;
+        display: grid;
+        grid-template-columns: 1fr 1.3fr;
+        grid-template-rows: 400px 60px;
+        column-gap: 20px;
+    }
 
     &__text {
         &-wrapper {
-            display: flex;
-            margin: 20px 0;
-            align-items: center;
-            justify-content: space-between;
+            align-content: center;
+
+            >h2 {
+                margin-bottom: 30px;
+            }
         }
     }
 
     &__button {
+        width: 170px;
         background-color: black;
         padding: 20px;
         text-align: center;
+    }
+
+    &__photo {
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
     }
 }
 
@@ -81,7 +112,7 @@
 
     &__text {
         &-wrapper {
-            @extend .powder__text-wrapper;
+            // @extend .powder__text-wrapper;
         }
     }
 

@@ -41,19 +41,23 @@ export default function LandingPage() {
 
           <div className="powder">
             <div className="page-container-content">
-              <div className="powder__text-wrapper">
-                <div className="powder__text">
+              <div className="powder__wrapper">
+
+                <div className="powder__text-wrapper">
                   <h2>Explore Our <span className="line-break">Makeup Essentials</span></h2>
                   <p>Discover Your Signature Look with Our Expansive Makeup Collection. From bold lipsticks to flawless foundations, we have everything you need to elevate your beauty game</p>
-                  <div className="powder__button">
-                    <Link to={"/"}>
-                      Shop Now
-                    </Link>
-                  </div>
                 </div>
+
                 <div className="powder__photo">
                   <img src='assets/landing2.jpg' />
                 </div>
+
+                <div className="powder__button">
+                  <Link to={"/"}>
+                    Shop Now
+                  </Link>
+                </div>
+
               </div>
             </div>
           </div>
@@ -64,7 +68,7 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <div className="girl">
+          {/* <div className="girl">
             <div className="page-container-content">
               <div className="girl__text-wrapper">
                 <div className="girl__photo">
@@ -76,7 +80,7 @@ export default function LandingPage() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div className="landing-page__separator">
           </div>
