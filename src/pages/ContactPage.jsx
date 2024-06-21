@@ -20,9 +20,9 @@ export default function ContactPage() {
                     </div>
                     <div className='form__photo'>
                         <picture>
-                            <source media="(max-width: 768px)" srcSet='./assets/contact2.jpg' />
-                            <source media="(min-width: 767px)" srcSet='./assets/contact1.jpg' />
-                            <img src='./assets/contact1.jpg' />
+                            <source media="(max-width: 768px)" srcSet='./assets/contact_small.jpg' />
+                            <source media="(min-width: 767px)" srcSet='./assets/contact_big.jpg' />
+                            <img src='./assets/contact_big.jpg' />
                         </picture>
                     </div>
                 </div>

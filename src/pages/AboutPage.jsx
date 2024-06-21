@@ -52,7 +52,7 @@ export default function AboutPage() {
 
                     {/* <div className='about-page__statistics'> */}
                     <div className='about-page__photo'>
-                        <img src='./assets/about1.jpg' />
+                        <img src='./assets/about.jpg' />
                     </div>
 
                     {/* <Card style={styleStatistics} view="clear" type="container" size="l" className='about-page__card'> */}

@@ -49,7 +49,7 @@ export default function LandingPage() {
                 </div>
 
                 <div className="powder__photo">
-                  <img src='assets/landing2.jpg' />
+                  <img src='assets/powder.jpg' />
                 </div>
 
                 <div className="powder__button">
@@ -68,19 +68,55 @@ export default function LandingPage() {
             </div>
           </div>
 
-          {/* <div className="girl">
+          <div className="pink">
+
             <div className="page-container-content">
-              <div className="girl__text-wrapper">
-                <div className="girl__photo">
-                  <img src='assets/landing3.jpg' />
+              <div className="pink__wrapper">
+
+                <div className="pink__black-block">
+
                 </div>
-                <div className="girl__text">
+
+                <div className="pink__text-wrapper">
+                  <h2>Enhance Your <span className="line-break"> </span><span className="line-break">Beauty with Us</span></h2>
+                </div>
+
+                <div className="pink__images">
+                  <img src='assets/both.png' />
+                  {/* <div className="pink__rouge">
+                    <img src='assets/dior-rouge.png' />
+                  </div>
+                  <div className="pink__lipstick">
+                    <img src='assets/dior-lipstick.png' />
+                  </div> */}
+
+                </div>
+              </div>
+
+
+
+            </div>
+
+
+
+          </div>
+
+          <div className="girl">
+            <div className="page-container-content">
+              <div className="girl__wrapper">
+                <div className="girl__photo">
+                  <img src='assets/girl.jpg' />
+                </div>
+                <div className="girl__lipstick">
+                  <img src='assets/lipstick.png' />
+                </div>
+                <div className="girl__text-wrapper">
                   <h2>Unleash <span className="line-break">Your </span><span className="line-break">Radiance</span></h2>
-                  <p>Discover the Transformative Power of Our Makeup Collection.</p>
+                  <p>Discover the Transformative Power of Our Makeup Collection</p>
                 </div>
               </div>
             </div>
-          </div> */}
+          </div>
 
           <div className="landing-page__separator">
           </div>
