@@ -23,6 +23,12 @@
         }
     }
 
+    .header {
+        &__link {
+            font-size: unset;
+        }
+    }
+
     .lipstick {
         &__text {
             &-wrapper {
@@ -75,6 +81,62 @@
 
             &-content {
                 max-width: 680px;
+            }
+        }
+    }
+
+    .burger {
+        &-icon {
+            display: block;
+        }
+    }
+
+    .header {
+        height: 40px;
+
+        &__nav {
+            z-index: 10;
+            position: fixed;
+            top: 0;
+            left: -255px;
+            display: flex;
+            flex-direction: column;
+            width: 250px;
+            height: 350px;
+            background-color: white;
+            border: 2px solid gray;
+            border-top-right-radius: 16px;
+            border-bottom-right-radius: 16px;
+            box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.25);
+            transition: all 0.6s;
+
+            &_active {
+                transform: translateX(100%);
+            }
+        }
+
+        &__close {
+            display: block;
+        }
+
+        &__links {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 0;
+        }
+
+        &__link {
+            margin: 10px 0;
+        }
+
+        &__logo {
+            max-height: 30px;
+            margin-left: 10px;
+
+            img {
+                height: 100%;
             }
         }
     }

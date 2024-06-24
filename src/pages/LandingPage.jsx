@@ -83,13 +83,6 @@ export default function LandingPage() {
 
                 <div className="pink__images">
                   <img src='assets/both.png' />
-                  {/* <div className="pink__rouge">
-                    <img src='assets/dior-rouge.png' />
-                  </div>
-                  <div className="pink__lipstick">
-                    <img src='assets/dior-lipstick.png' />
-                  </div> */}
-
                 </div>
               </div>
 

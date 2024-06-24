@@ -13,8 +13,8 @@ export default function ProductItem() {
   const { id } = useParams();
 
   const style = {
-    minWidth: '500px',
-    minHeight: '500px',
+    width: '500px',
+    height: '500px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',

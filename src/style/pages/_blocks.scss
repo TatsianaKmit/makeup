@@ -17,8 +17,27 @@
     height: 80px;
 
     img {
+      object-fit: cover;
+      width: 100%;
       height: 100%;
     }
+  }
+
+  &__nav {
+    flex-basis: 70%;
+    text-align: end;
+  }
+
+  &__links {
+    position: relative;
+  }
+
+  &__close {
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    top: 15px;
+    right: 15px;
   }
 
   &__link {
@@ -26,8 +45,35 @@
     display: inline-block;
     padding: 5px 10px;
     letter-spacing: 1px;
-    margin: 0 20px;
     font-size: 24px;
+  }
+
+  &__icons {
+    width: 40px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__overlay {
+    z-index: 8;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    opacity: .75;
+  }
+
+
+}
+
+.burger {
+  &-icon {
+    display: none;
+    cursor: pointer;
   }
 }
 
@@ -153,5 +199,6 @@ a {
 
   &__icon {
     max-height: 40px;
+    cursor: pointer;
   }
 }
