@@ -19,15 +19,13 @@ export const SliderItem = (props) => {
 
     return (
 
-        <Card style={style} view="filed" type="container" size="l">
-            <div className="slider-tags__photo">
-                <img src={img} alt={tag_name} />
-            </div>
-            <Button view="flat-contrast" size="l">
-                <Link to={`/${path}`}>
-                    {tag_name}
-                </Link>
-            </Button>
+        <Card style={style} view="clear" type="container" size="l" className="slider-tags__card">
+            <Link to={`/${path}`}>
+                <div className='slider-tags__title'>{tag_name}</div>
+                <div className="slider-tags__photo">
+                    <img src={img} alt={tag_name} />
+                </div>
+            </Link>
         </Card>
     )
 }

@@ -29,6 +29,22 @@
         }
     }
 
+    .footer {
+        font-size: 0.9rem;
+        padding: 30px 0;
+
+        &__links {
+            >h6 {
+                font-size: 1rem;
+                margin: 3px 0;
+            }
+        }
+
+        &__link {
+            margin: 2px 0;
+        }
+    }
+
     .lipstick {
         &__text {
             &-wrapper {
@@ -141,6 +157,40 @@
         }
     }
 
+    .footer {
+        padding: 15px 0;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 0.8fr 0.2fr;
+        gap: 15px;
+
+        &__logo {
+            height: 40px;
+
+            &-block {
+                grid-column: 1 / 4;
+                grid-row: 2 / 3;
+                width: 360px;
+                justify-content: space-between;
+
+                flex-direction: unset;
+                flex-wrap: unset;
+                flex-basis: unset;
+                align-content: unset;
+            }
+        }
+
+        &__links {
+            justify-self: start;
+        }
+    }
+
+
+    .slider {
+        &-tags {
+            margin: 30px 0px;
+        }
+    }
+
     .lipstick {
         &__text {
             height: unset;
@@ -241,6 +291,20 @@
             &-content {
                 max-width: 500px;
             }
+        }
+    }
+
+    .footer {
+        &__logo {
+            &-block {
+                width: 280px;
+            }
+        }
+    }
+
+    .slider {
+        &-tags {
+            margin: 10px 0px;
         }
     }
 
@@ -355,8 +419,44 @@
             max-width: 100%;
 
             &-content {
-                max-width: 100%;
+                width: 100%;
                 padding: 0 10px;
+            }
+        }
+    }
+
+    footer {
+        .page {
+            &-container {
+                &-content {
+                    padding: unset;
+                }
+            }
+        }
+    }
+
+    .footer {
+        grid-template-columns: 1fr;
+        padding: 15px 5px;
+
+        &__logo {
+            display: none;
+
+            &-block {
+                grid-column: unset;
+                grid-row: 4 / 5;
+            }
+        }
+    }
+
+    .slider {
+        &-tags {
+            .page {
+                &-container {
+                    &-content {
+                        width: 230px;
+                    }
+                }
             }
         }
     }
@@ -428,6 +528,14 @@
     }
 
     .girl {
+        .page {
+            &-container {
+                &-content {
+                    padding: unset;
+                }
+            }
+        }
+
         &__wrapper {
             background: linear-gradient(180deg,
                     rgba(255, 255, 255, 0.03) 2.5%,
@@ -480,7 +588,7 @@
     .contact-page {
         .form {
             &__container {
-                max-width: 90%;
+                max-width: 95%;
             }
 
             &__wrapper {

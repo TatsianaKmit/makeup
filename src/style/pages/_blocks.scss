@@ -24,7 +24,6 @@
   }
 
   &__nav {
-    flex-basis: 70%;
     text-align: end;
   }
 
@@ -66,8 +65,6 @@
     background-color: white;
     opacity: .75;
   }
-
-
 }
 
 .burger {
@@ -80,9 +77,11 @@
 // footer
 
 .footer {
-  @extend .header;
+  background-color: variables.$semanticBlocksColorWhite;
+  display: grid;
+  grid-template-columns: 1.5fr repeat(3, 1fr);
   font-size: 1rem;
-  padding: 60px 0;
+  padding: 40px 0;
 
   &__logo-block {
     display: flex;
@@ -104,17 +103,12 @@
     }
   }
 
-  &__links-block {
-    display: flex;
-    justify-content: space-between;
-    flex-grow: 1;
-  }
-
   &__links {
+    justify-self: end;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     align-items: flex-start;
+    justify-content: flex-start;
 
     >h6 {
       color: variables.$linkColorLightGray;
@@ -124,7 +118,13 @@
   }
 
   &__link {
-    margin: 1px 0;
+    margin: 4px 0;
+  }
+
+  &__icons {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
   }
 }
 
@@ -165,8 +165,13 @@ a {
   &-tags {
     margin: 40px 0px;
 
+    &__title {
+      text-align: center;
+      margin-bottom: 3px;
+    }
+
     &__photo {
-      height: 100px; /// to put into mixine or extend
+      height: 130px; /// to put into mixine or extend
 
       img {
         object-fit: cover; /// to put into mixine or extend

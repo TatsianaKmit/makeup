@@ -62,11 +62,11 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <div className="slider-brands">
+          {/* <div className="slider-brands">
             <div className="page-container-content">
               <MultipleItems />
             </div>
-          </div>
+          </div> */}
 
           <div className="pink">
 
