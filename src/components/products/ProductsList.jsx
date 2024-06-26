@@ -29,10 +29,12 @@ export default function ProductsList({ details }) {
             ) : (
               details.map((detail) => (
                 <li key={detail.id}>
-                  <Link to={`/product/${detail.id}`}>
-                    <Card style={style} view="outlined" type="container" size="l">
-                      {imageLoading && <Spin className='spin' />}
-                      <div className="products-list__photo">
+
+                  <div className="products-list__card_small">
+
+                    {imageLoading && <Spin className='spin' />}
+                    <div className="products-list__photo">
+                      <Link to={`/product/${detail.id}`}>
                         <img
                           src={detail.image_link}
                           alt={detail.name}
@@ -42,14 +44,18 @@ export default function ProductsList({ details }) {
                           }}
                           onLoad={handleImageLoad}
                         />
-                      </div>
-                      <div className="products-list__titles">
+                      </Link>
+                    </div>
+                    <div className="products-list__titles">
+                      <Link to={`/product/${detail.id}`}>
                         <p>{detail.name}</p>
                         <p>{detail.brand}</p>
-                        <p>{detail.price}</p>
-                      </div>
-                    </Card>
-                  </Link>
+                        <p>{`$${detail.price}`}</p>
+                      </Link>
+                    </div>
+
+                  </div>
+
                 </li>
               ))
             )}

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { fetchProductsItem } from "../../services/GET";
 import { useParams } from "react-router-dom";
 import ProductColors from "./ProductColors";
-import { Spin } from "@gravity-ui/uikit";
+import { Button, Spin } from "@gravity-ui/uikit";
 
 export default function ProductItem() {
   const [details, setDetails] = useState([]);
@@ -50,16 +50,32 @@ export default function ProductItem() {
             <div className="products-list__block-categories">
               <span>{`product type: ${details.product_type}`}</span>
             </div>
-            <div className="products-list__description">
-              <p>{details.description}</p>
+
+            <div className="products-list__block-tags">
+              {
+                details.tag_list.length > 0 ?
+                  (
+                    <>
+                      {details.tag_list.map(item => (
+                        <Button className="products-list__block-tag">
+                          {item}
+                        </Button>
+                      ))}
+                    </>
+                  ) : (
+                    null
+                  )
+              }
+
             </div>
+
+
 
             <div className="products-list__colors-wrapper">
               {
                 details.product_colors.length > 0 ?
                   (
                     <>
-                      <h5>Colors:</h5>
                       <ProductColors />
                     </>
                   ) : (
@@ -68,8 +84,14 @@ export default function ProductItem() {
               }
             </div>
 
+            <div className="products-list__description">
+              <p>{details.description}</p>
+            </div>
+
             <div className="products-list__block-price">
-              <span>{`$ ${details.price}`}</span>
+              <Button>
+                {`$ ${details.price}`}
+              </Button>
             </div>
 
           </div>
