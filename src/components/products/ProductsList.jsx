@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Spin } from "@gravity-ui/uikit";
-import { Card } from "@gravity-ui/uikit";
 
 export default function ProductsList({ details }) {
   const [imageLoading, setImageLoading] = useState(true);

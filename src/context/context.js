@@ -6,6 +6,11 @@ export const useSearchContext = () => useContext(SearchContext);
 
 export const SearchProvider = ({ children }) => {
     const [isSearchVisible, setIsSearchVisible] = useState(false);
+    const [searchValue, setSearchValue] = useState("");
+
+    const handleSearchValue = (value) => {
+        setSearchValue(value)
+    }
 
     const toggleSearchVisibility = () => {
         setIsSearchVisible((prev) => !prev)
@@ -15,6 +20,8 @@ export const SearchProvider = ({ children }) => {
         <SearchContext.Provider value={{
             isSearchVisible,
             toggleSearchVisibility,
+            handleSearchValue,
+            searchValue
         }}>
             {children}
         </SearchContext.Provider>

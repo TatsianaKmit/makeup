@@ -384,6 +384,7 @@
     .powder {
         &__wrapper {
             grid-template-rows: 220px 410px 60px;
+            row-gap: 5px;
         }
     }
 
@@ -552,6 +553,7 @@
             &-container {
                 &-content {
                     padding: unset;
+                    max-width: unset;
                 }
             }
         }
@@ -592,6 +594,7 @@
     .pink {
         .page-container-content {
             padding: unset;
+            max-width: unset;
         }
 
         &__black-block {
@@ -604,6 +607,7 @@
             &-container {
                 &-content {
                     padding: unset;
+                    max-width: unset;
                 }
             }
         }
@@ -642,9 +646,13 @@
     }
 
     .about-page {
-        &__wrapper {
-            grid-template-columns: fit-content(95%);
-            grid-auto-rows: auto;
+        .page {
+            &-container {
+                &-content {
+                    padding: unset;
+                    width: 95%;
+                }
+            }
         }
     }
 
@@ -679,18 +687,18 @@
             }
 
             &_small {
-                flex-direction: row;
+                height: 250px;
             }
 
         }
 
         &__titles {
-            margin-top: unset;
-            margin-left: 5px;
+            margin-top: 15px;
+            text-align: center;
         }
 
         &__photo {
-            align-self: unset;
+            height: 150px;
 
             &_enlarged {
                 justify-self: center;

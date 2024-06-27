@@ -6,9 +6,10 @@ import { Select } from '@gravity-ui/uikit';
 import { useEffect } from "react";
 import ProductsList from "../products/ProductsList";
 import { Spin } from "@gravity-ui/uikit";
+import useSearch from "../../hooks/useSearch";
 
 export default function DataFilter(props) {
-    const { filterUrl, details, loading } = props
+    const { filterUrl, details, loading, searchedDetails } = props
     const [selectBrand, setSelectBrand] = useState([])
     const [selectTag, setSelectTag] = useState([])
     const [selectCategory, setSelectCategory] = useState([])
@@ -154,6 +155,9 @@ export default function DataFilter(props) {
                 {loading ? <Spin className='spin' /> :
                     <ProductsList
                         details={selectTag.length > 0 || selectBrand.length > 0 || selectCategory.length > 0 ? filterArrayState : details} className="products-list" />}
+
+                {/* {loading ? <Spin className='spin' /> : <ProductsList details={(selectTag.length > 0 || selectBrand.length > 0 || selectCategory.length > 0) ? filterArrayState : (searchedDetails.length > 0) ? searchedDetails : details} className="products-list" />} */}
+
             </div>
 
         </>

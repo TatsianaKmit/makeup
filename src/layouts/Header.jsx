@@ -1,39 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Magnifier, Bars, Xmark } from '@gravity-ui/icons';
 import { Button, TextInput } from '@gravity-ui/uikit';
 import { useSearchContext } from '../context/context'
-import { fetchProductsList } from '../services/GET'
 import ProductsPage from "../pages/ProductsPage";
+import useSearch from "../hooks/useSearch";
 
 export default function Header() {
-  const [searchValue, setSearchValue] = useState("");
-  const { isSearchVisible, toggleSearchVisibility } = useSearchContext()
-  const [details, setDetails] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { isSearchVisible, toggleSearchVisibility, handleSearchValue, searchValue } = useSearchContext()
+  const { searchedDetails, searchProducts } = useSearch()
   const [burgerOpen, setBurgerOpen] = useState()
-
-  useEffect(() => {
-    fetchProductsList({ filter: searchValue })
-      .then((response) => {
-        setLoading(false);
-        setDetails(response);
-      })
-      .catch((err) => {
-        console.error(err);
-        setLoading(false);
-      });
-    console.log(details);
-  }, [searchValue])
-
-  const searchProducts = (details) => {
-    const searchedDetails = details.filter(item => item.name.toLowerCase().includes(searchValue.toLowerCase()));
-    return searchedDetails
-  }
-
-  const handleSearch = () => {
-    searchProducts(details);
-  }
 
   return (
     <>
@@ -79,9 +55,9 @@ export default function Header() {
                 placeholder="search by name"
                 type="search"
                 value={searchValue}
-                onChange={(e) => setSearchValue(e.target.value)}
+                onChange={(e) => handleSearchValue(e.target.value)}
               />
-              <Button className="header search-form__button" onClick={handleSearch} >Go</Button>
+              <Button className="header search-form__button" onClick={searchProducts} >Go</Button>
             </div> : null
           }
           <div className="header__icons">
@@ -91,8 +67,7 @@ export default function Header() {
           {burgerOpen && <div className="header__overlay" onClick={() => setBurgerOpen(false)}></div>}
         </div>
       </div >
-      {searchValue ? <ProductsPage details={details} searchValue={searchValue} handleSearch={handleSearch} searchProducts={searchProducts} /> : null
-      }
+      {/* {searchValue ? <ProductsPage searchedDetails={searchedDetails} searchValue={searchValue} /> : null} */}
     </>
   );
 }
