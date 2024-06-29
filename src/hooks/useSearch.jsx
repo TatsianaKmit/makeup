@@ -11,8 +11,6 @@ function useSearch() {
     const navigate = useNavigate();
     const location = useLocation();
 
-    console.log(searchValue);
-
     useEffect(() => {
         fetchProductsList({ filter: 'search' })
             .then((response) => {
@@ -25,13 +23,11 @@ function useSearch() {
             });
     }, [searchValue])
 
-    console.log('details', details);
-    console.log('searchedDetails', searchedDetails);
-    console.log('location.pathname', location.pathname);
+    const searchData = details.filter(item => item.name.toLowerCase().includes(searchValue.toLowerCase()));
 
     const searchProducts = () => {
         // navigate(`/products?filter=search&name=${searchValue}`);
-        const searchData = details.filter(item => item.name.toLowerCase().includes(searchValue.toLowerCase()));
+        console.log(details);
         setSearchedDetails(searchData);
     }
 
