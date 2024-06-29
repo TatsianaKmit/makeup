@@ -15,6 +15,7 @@ export default function ProductsPage(props) {
   const brand = searchParams.get("brand");
   const category = searchParams.get("category");
   const tag = searchParams.get("tag");
+  const search = searchParams.get("search");
 
   useEffect(() => {
     fetchProductsList({ type: category, brand, tag, filter: filterUrl })

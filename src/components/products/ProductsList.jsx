@@ -5,15 +5,6 @@ import { Spin } from "@gravity-ui/uikit";
 export default function ProductsList({ details }) {
   const [imageLoading, setImageLoading] = useState(true);
 
-  const style = {
-    width: '230px',
-    height: '230px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'column'
-  }
-
   const handleImageLoad = () => {
     setImageLoading(false);
   };
@@ -30,7 +21,6 @@ export default function ProductsList({ details }) {
                 <li key={detail.id}>
 
                   <div className="products-list__card_small">
-
                     {imageLoading && <Spin className='spin' />}
                     <div className="products-list__photo">
                       <Link to={`/product/${detail.id}`}>
@@ -52,9 +42,7 @@ export default function ProductsList({ details }) {
                         <p>{`$${detail.price}`}</p>
                       </Link>
                     </div>
-
                   </div>
-
                 </li>
               ))
             )}

@@ -1,8 +1,6 @@
 @use '../base/variables';
 @use '../base/mixines';
 
-/// to check EXTEND for flexes!!!!
-
 .page {
     &-container {
         margin: 0 auto;
@@ -30,6 +28,13 @@
     display: flex;
     align-items: center;
 
+    &__wrapper {
+        min-height: 325px;
+        width: 600px;
+        display: grid;
+        align-items: center;
+    }
+
     &__text {
         display: flex;
         flex-direction: column;
@@ -37,18 +42,11 @@
         justify-content: space-between;
 
         >h2,
-        h4 {
+        >h4 {
             text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
         }
 
-        &-wrapper {
-            min-height: 325px;
-            width: 600px;
-            display: grid;
-            align-items: center;
-        }
-
-        .subtitle {
+        >h4 {
             font-size: 1.07rem;
         }
     }
@@ -68,16 +66,8 @@
 
 .powder {
     margin: 20px 0;
-    background-color: variables.$landingSectionColorPinkWarm;
+    background-color: variables.$landingSectionColorGray;
     height: 540px;
-
-    // .page {
-    //     &-container {
-    //         &-content {
-    //             margin: unset;
-    //         }
-    //     }
-    // }
 
     &__wrapper {
         height: 480px;
@@ -88,12 +78,10 @@
     }
 
     &__text {
-        &-wrapper {
-            align-content: center;
+        align-content: center;
 
-            >h2 {
-                margin-bottom: 30px;
-            }
+        >h2 {
+            margin-bottom: 30px;
         }
     }
 
@@ -114,9 +102,9 @@
 }
 
 .pink {
+    margin: 20px 0;
     background-color: variables.$landingSectionColorPinkBright;
     height: 540px;
-    margin-bottom: 50px;
 
     &__wrapper {
         height: 500px;
@@ -125,13 +113,18 @@
         grid-template-rows: 0.2fr 0.8fr;
     }
 
-    &__black-block {
+    &__slider {
         grid-column: 1 / 3;
         height: 80px;
         background-color: black;
     }
 
-    &__images {
+    &__text {
+        justify-self: center;
+        place-self: center;
+    }
+
+    &__photo {
         place-self: center;
         width: 70%;
 
@@ -139,33 +132,10 @@
             object-fit: cover;
         }
     }
-
-    &__text {
-        &-wrapper {
-            justify-self: center;
-            place-self: center;
-        }
-    }
-
-    // &__rouge {
-    //     width: 100%;
-
-    //     img {
-    //         object-fit: cover;
-    //     }
-    // }
-
-    // &__lipstick {
-    //     width: 100%;
-
-    //     img {
-    //         object-fit: cover;
-    //     }
-
-    // }
 }
 
 .girl {
+    margin: 20px 0;
     background-color: variables.$landingSectionColorGray;
 
     &__wrapper {
@@ -175,27 +145,26 @@
     }
 
     &__text {
-        &-wrapper {
-            @extend .powder__text-wrapper;
-        }
+        @extend .powder__text;
     }
 
     &__photo {
-        width: 100%;
+        &_main {
+            width: 100%;
 
-        img {
-            object-fit: cover;
-        }
-    }
-
-    &__lipstick {
-        width: 100%;
-        align-self: end;
-
-        img {
-            object-fit: cover;
+            img {
+                object-fit: cover;
+            }
         }
 
+        &_secondary {
+            width: 100%;
+            align-self: end;
+
+            img {
+                object-fit: cover;
+            }
+        }
     }
 }
 
@@ -211,7 +180,9 @@
         gap: 40px;
     }
 
-    &__description {}
+    &__title {
+        grid-column: 1/3;
+    }
 
     &__text {
         text-align: justify;
@@ -227,10 +198,6 @@
         }
     }
 
-    &__titles {
-        grid-column: 1/3;
-    }
-
     &__photo {
         width: 100%;
 
@@ -240,22 +207,26 @@
     }
 
     &__statistics {
-        &-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            // grid-template: repeat(3, minmax(115px, auto)/repeat(1, 250px));
-            gap: 1rem;
-            place-items: center;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(120px, 1fr));
+        grid-template-rows: 40px 70px;
+        gap: 1rem;
+        place-items: center;
+
+        >h4 {
+            grid-column: 1/4;
+            text-align: center;
         }
     }
 
     &__card {
-        @extend .about-page__titles;
-        grid-column-start: 2;
-
-        >h4 {
-            text-align: center;
-        }
+        width: 90%;
+        box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.25);
+        border-radius: 15px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 
@@ -321,8 +292,6 @@
         display: grid;
         gap: 20px;
         grid-template-columns: repeat(4, minmax(230px, 1fr));
-        // grid-auto-rows: minmax(250px, 1fr);
-        // grid-auto-rows: minmax(250px, 1fr);
         align-items: start;
     }
 
@@ -340,14 +309,12 @@
             display: flex;
             flex-direction: column;
             max-width: 100%;
-            // width: 100%;
             background: #fff;
             box-shadow: 0 2px 6px rgba(28, 28, 30, .08);
             border-radius: 16px 11px 16px 16px;
             height: 230px;
             padding: 8px;
             cursor: pointer;
-
         }
 
         &_big {

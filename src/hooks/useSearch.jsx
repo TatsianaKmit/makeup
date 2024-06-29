@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { fetchProductsList } from '../services/GET';
 import { useSearchContext } from '../context/context';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function useSearch() {
     const { searchValue } = useSearchContext()
@@ -9,6 +9,7 @@ function useSearch() {
     const [loading, setLoading] = useState(true);
     const [searchedDetails, setSearchedDetails] = useState([]);
     const navigate = useNavigate();
+    const location = useLocation();
 
     console.log(searchValue);
 
@@ -26,6 +27,7 @@ function useSearch() {
 
     console.log('details', details);
     console.log('searchedDetails', searchedDetails);
+    console.log('location.pathname', location.pathname);
 
     const searchProducts = () => {
         // navigate(`/products?filter=search&name=${searchValue}`);
