@@ -2,22 +2,25 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Spin } from "@gravity-ui/uikit";
 
-export default function ProductsList({ details }) {
+export default function ProductsList(props) {
+  const { details } = props
   const [imageLoading, setImageLoading] = useState(true);
 
   const handleImageLoad = () => {
     setImageLoading(false);
   };
 
+  console.log('ProductsList details', details);
+
   return (
     <>
       <div>
         <ul>
           <div className="products-list__container">
-            {details.length === 0 ? (
+            {details && details.length === 0 ? (
               <p>No products found.</p>
             ) : (
-              details.map((detail) => (
+              details && details.map((detail) => (
                 <li key={detail.id}>
 
                   <div className="products-list__card_small">

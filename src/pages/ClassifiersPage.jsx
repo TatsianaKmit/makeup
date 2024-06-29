@@ -8,6 +8,7 @@ export default function ClassifiersPage({ type }) {
     const [loading, setLoading] = useState(true);
     const location = useLocation();
 
+
     useEffect(() => {
         if (location.pathname === "/catalog") {
             setLoading(false)

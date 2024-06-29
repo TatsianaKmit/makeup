@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import PageNotFound from "./pages/PageNotFound";
 import Layout from "./layouts/Layout";
@@ -12,9 +12,6 @@ import ClassifiersPage from "./pages/ClassifiersPage";
 import { SearchProvider } from "./context/context";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
-
-
-
 
 function App() {
 

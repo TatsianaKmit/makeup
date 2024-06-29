@@ -9,31 +9,33 @@ import { Spin } from "@gravity-ui/uikit";
 import useSearch from "../../hooks/useSearch";
 
 export default function DataFilter(props) {
-    const { filterUrl, details, loading, searchedDetails } = props
+    const { filterUrl, details, loading, pageState, searchedDetails } = props
     const [selectBrand, setSelectBrand] = useState([])
     const [selectTag, setSelectTag] = useState([])
     const [selectCategory, setSelectCategory] = useState([])
     const [detailsState, setDetailsState] = useState([])
     const [filterArrayState, setFilterArrayState] = useState([])
 
-    if (JSON.stringify(detailsState) !== JSON.stringify(details)) {
-        setDetailsState(details)
+    console.log('PageState DataFilter', pageState);
+
+    if (JSON.stringify(detailsState) !== JSON.stringify(pageState)) {
+        setDetailsState(pageState)
     }
 
     useEffect(() => {
-        if (filterUrl == 'catalog' && detailsState.length > 0) {
+        if (filterUrl == 'catalog' && detailsState && detailsState.length > 0) {
             const filterArrayBoth = detailsState.filter(item => item.brand === selectBrand[0] && item.tag_list.includes(selectTag[0]))
             const filterArrayBrand = detailsState.filter(item => item.brand === selectBrand[0])
             const filterArrayTag = detailsState.filter(item => item.tag_list.includes(selectTag[0]))
             const filteredArray = selectBrand.length > 0 && selectTag.length > 0 ? filterArrayBoth : selectBrand.length > 0 && selectTag.length === 0 ? filterArrayBrand : filterArrayTag
             setFilterArrayState(filteredArray)
-        } else if (filterUrl == 'brands' && detailsState.length > 0) {
+        } else if (filterUrl == 'brands' && detailsState && detailsState.length > 0) {
             const filterArrayBoth = detailsState.filter(item => item.product_type === selectCategory[0] && item.tag_list.includes(selectTag[0]))
             const filterArrayCategory = detailsState.filter(item => item.product_type === selectCategory[0])
             const filterArrayTag = detailsState.filter(item => item.tag_list.includes(selectTag[0]))
             const filteredArray = selectCategory.length > 0 && selectTag.length > 0 ? filterArrayBoth : selectCategory.length > 0 && selectTag.length === 0 ? filterArrayCategory : filterArrayTag
             setFilterArrayState(filteredArray)
-        } else if (filterUrl == 'product_tags' && detailsState.length > 0) {
+        } else if (filterUrl == 'product_tags' && detailsState && detailsState.length > 0) {
             const filterArrayBoth = detailsState.filter(item => item.brand === selectBrand[0] && item.product_type === selectCategory[0])
             const filterArrayBrand = detailsState.filter(item => item.brand === selectBrand[0])
             const filterArrayCategory = detailsState.filter(item => item.product_type === selectCategory[0])
@@ -154,7 +156,18 @@ export default function DataFilter(props) {
                 </div>
                 {loading ? <Spin className='spin' /> :
                     <ProductsList
-                        details={selectTag.length > 0 || selectBrand.length > 0 || selectCategory.length > 0 ? filterArrayState : details} className="products-list" />}
+                        details={selectTag.length > 0 || selectBrand.length > 0 || selectCategory.length > 0 ? filterArrayState : pageState} className="products-list" />}
+
+
+
+                {/* {loading ? <Spin className='spin' /> :
+                    <ProductsList
+                        details={pageState} className="products-list" />} */}
+
+
+
+
+
 
                 {/* {loading ? <Spin className='spin' /> : <ProductsList details={(selectTag.length > 0 || selectBrand.length > 0 || selectCategory.length > 0) ? filterArrayState : (searchedDetails.length > 0) ? searchedDetails : details} className="products-list" />} */}
 

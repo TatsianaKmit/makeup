@@ -1,16 +1,17 @@
-export const fetchProductsList = async ({ type, brand, tag, filter }) => {
+export const fetchProductsList = async () => {
   try {
     let url = "";
-    if (filter === "brands") {
-      url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}`;
-    } else if (filter === "catalog") {
-      url = `http://makeup-api.herokuapp.com/api/v1/products.json?&product_type=${type}`;
-    } else if (filter === "product_tags") {
-      url = `http://makeup-api.herokuapp.com/api/v1/products.json?product_tags=${tag}`;
-    }
-    else if (filter === "search") {
-      url = `http://makeup-api.herokuapp.com/api/v1/products.json`
-    }
+    // if (filter === "brands") {
+    //   url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}`;
+    // } else if (filter === "catalog") {
+    //   url = `http://makeup-api.herokuapp.com/api/v1/products.json?&product_type=${type}`;
+    // } else if (filter === "product_tags") {
+    //   url = `http://makeup-api.herokuapp.com/api/v1/products.json?product_tags=${tag}`;
+    // }
+    // else if (filter === "search") {
+    //   url = `http://makeup-api.herokuapp.com/api/v1/products.json`
+    // }
+    url = `http://makeup-api.herokuapp.com/api/v1/products.json`
     const response = await fetch(url);
     return await response.json();
   } catch (err) {

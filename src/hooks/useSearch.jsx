@@ -4,30 +4,27 @@ import { useSearchContext } from '../context/context';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 function useSearch() {
-    const { searchValue } = useSearchContext()
-    const [details, setDetails] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const { details, searchValue } = useSearchContext()
     const [searchedDetails, setSearchedDetails] = useState([]);
     const navigate = useNavigate();
     const location = useLocation();
 
-    useEffect(() => {
-        fetchProductsList({ filter: 'search' })
-            .then((response) => {
-                setLoading(false);
-                setDetails(response);
-            })
-            .catch((err) => {
-                console.error(err);
-                setLoading(false);
-            });
-    }, [searchValue])
+    // useEffect(() => {
+    //     fetchProductsList({ filter: 'search' })
+    //         .then((response) => {
+    //             setLoading(false);
+    //             setDetails(response);
+    //         })
+    //         .catch((err) => {
+    //             console.error(err);
+    //             setLoading(false);
+    //         });
+    // }, [searchValue])
 
     const searchData = details.filter(item => item.name.toLowerCase().includes(searchValue.toLowerCase()));
 
     const searchProducts = () => {
         // navigate(`/products?filter=search&name=${searchValue}`);
-        console.log(details);
         setSearchedDetails(searchData);
     }
 
