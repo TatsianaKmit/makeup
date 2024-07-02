@@ -10,22 +10,20 @@ export default function ProductsList(props) {
     setImageLoading(false);
   };
 
-  console.log('ProductsList details', details);
-
   return (
     <>
       <div>
         <ul>
-          <div className="products-list__container">
+          <div className="list-page__wrapper">
             {details && details.length === 0 ? (
               <p>No products found.</p>
             ) : (
               details && details.map((detail) => (
                 <li key={detail.id}>
 
-                  <div className="products-list__card_small">
-                    {imageLoading && <Spin className='spin' />}
-                    <div className="products-list__photo">
+                  <div className="list-page__card">
+                    {imageLoading && <div className="spin" size='xs'><Spin /></div>}
+                    <div className="list-page__photo">
                       <Link to={`/product/${detail.id}`}>
                         <img
                           src={detail.image_link}
@@ -38,7 +36,7 @@ export default function ProductsList(props) {
                         />
                       </Link>
                     </div>
-                    <div className="products-list__titles">
+                    <div className="list-page__text">
                       <Link to={`/product/${detail.id}`}>
                         <p>{detail.name}</p>
                         <p>{detail.brand}</p>

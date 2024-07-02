@@ -7,16 +7,18 @@ import { useEffect } from "react";
 import ProductsList from "../products/ProductsList";
 import { Spin } from "@gravity-ui/uikit";
 import useSearch from "../../hooks/useSearch";
+import { useSearchContext } from "../../context/context";
 
 export default function DataFilter(props) {
-    const { filterUrl, details, loading, pageState, searchedDetails } = props
+    const { filterUrl, details, loading, pageState } = props
+    const { searchedDetails } = useSearch()
     const [selectBrand, setSelectBrand] = useState([])
     const [selectTag, setSelectTag] = useState([])
     const [selectCategory, setSelectCategory] = useState([])
     const [detailsState, setDetailsState] = useState([])
     const [filterArrayState, setFilterArrayState] = useState([])
 
-    console.log('PageState DataFilter', pageState);
+    console.log('DataFilter SearchedDetails', searchedDetails);
 
     if (JSON.stringify(detailsState) !== JSON.stringify(pageState)) {
         setDetailsState(pageState)
@@ -48,7 +50,7 @@ export default function DataFilter(props) {
     return (
         <>
             <div className="page-container">
-                <div className="products-page__filter">
+                <div className="list-page__filter">
                     {filterUrl === "brands" &&
                         <>
                             <Select
@@ -154,25 +156,16 @@ export default function DataFilter(props) {
                         </>
                     }
                 </div>
-                {loading ? <Spin className='spin' /> :
+                {/* {loading ? <div className="spin"><Spin /></div> :
                     <ProductsList
-                        details={selectTag.length > 0 || selectBrand.length > 0 || selectCategory.length > 0 ? filterArrayState : pageState} className="products-list" />}
+                        details={pageState} className="item-page" />} */}
 
-
-
-                {/* {loading ? <Spin className='spin' /> :
-                    <ProductsList
-                        details={pageState} className="products-list" />} */}
-
-
-
-
-
-
-                {/* {loading ? <Spin className='spin' /> : <ProductsList details={(selectTag.length > 0 || selectBrand.length > 0 || selectCategory.length > 0) ? filterArrayState : (searchedDetails.length > 0) ? searchedDetails : details} className="products-list" />} */}
+                {loading ? <div className="spin"><Spin /></div> :
+                    <ProductsList details={(searchedDetails && searchedDetails.length > 0) ? searchedDetails
+                        : (selectTag.length > 0 || selectBrand.length > 0 || selectCategory.length > 0) ? filterArrayState
+                            : pageState} className="item-page" />}
 
             </div>
-
         </>
     )
 }

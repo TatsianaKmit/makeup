@@ -9,7 +9,7 @@ export default function ContactPage() {
                     <div className='form__title'>
                         <h2>Contact Us</h2>
                     </div>
-                    <div className='form__input-fields'>
+                    <div className='form__inputs'>
                         <TextInput className='form__input' placeholder='Name' />
                         <TextInput className='form__input' placeholder='Phone' />
                         <TextInput className='form__input' placeholder='Email' />

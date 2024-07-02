@@ -3,7 +3,9 @@
 
 // header
 
-// mixines for photos or -%photo100px - to extend within files
+.main-container {
+  min-height: calc(100vh - 100px - 40px - 106px - 40px);
+}
 
 .header {
   background-color: variables.$semanticBlocksColorWhite;
@@ -171,11 +173,11 @@ a {
     }
 
     &__photo {
-      height: 130px; /// to put into mixine or extend
+      height: 130px;
 
       img {
-        object-fit: cover; /// to put into mixine or extend
-        height: 100%; /// to put into mixine or extend
+        object-fit: cover;
+        height: 100%;
       }
     }
   }
@@ -192,8 +194,10 @@ a {
 // spinners
 
 .spin {
+  display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh
 }
 
 // search-form
@@ -205,5 +209,9 @@ a {
   &__icon {
     max-height: 40px;
     cursor: pointer;
+
+    &_close {
+      cursor: pointer;
+    }
   }
 }

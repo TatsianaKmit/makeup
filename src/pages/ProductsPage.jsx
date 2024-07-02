@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from "react";
-import {
-  fetchProductsList
-} from "../services/GET";
 import DataFilter from "../components/SearchAndFilter/DataFilter";
-import useSearch from "../hooks/useSearch";
 import { useSearchContext } from "../context/context";
 
-export default function ProductsPage(props) {
-  const { details, loading } = useSearchContext()
+export default function ProductsPage() {
+  const { details, loading, searchedDetails, searchValue, searchProducts } = useSearchContext()
   const [pageState, setPageState] = useState()
 
   const searchParams = new URLSearchParams(window.location.search);
@@ -16,18 +12,6 @@ export default function ProductsPage(props) {
   const category = searchParams.get("category");
   const tag = searchParams.get("tag");
   const search = searchParams.get("search");
-
-  // useEffect(() => {
-  //   fetchProductsList({ type: category, brand, tag, filter: filterUrl })
-  //     .then((response) => {
-  //       setLoading(false);
-  //       setDetails(response);
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //       setLoading(false);
-  //     });
-  // }, [category, brand, tag]);
 
   useEffect(() => {
     if (filterUrl == 'catalog' && details.length > 0) {
@@ -39,18 +23,24 @@ export default function ProductsPage(props) {
       const brandsPage = details.filter(item => item.brand == brand)
       const pageData = brandsPage.length > 0 ? brandsPage : null
       setPageState(pageData)
+    } else if (filterUrl == 'product_tags' && details.length > 0) {
+      const tagsPage = details.filter(item => item.tag_list.includes(tag))
+      const pageData = tagsPage.length > 0 ? tagsPage : null
+      setPageState(pageData)
+    } else if (filterUrl == 'search' && details.length > 0) {
+      const searchPage = details.filter(item => item.name.toLowerCase().includes(searchValue.toLowerCase()))
+      const pageData = searchPage.length > 0 ? searchPage : null
+      setPageState(pageData)
     }
-  }, [filterUrl])
-
-
-  console.log('filterUrl', filterUrl);
-  console.log('Product page details', details);
-  console.log('pageState', pageState);
+  }, [filterUrl, searchValue])
 
   return (
     <>
-      <div className="products-page">
-        {filterUrl === "brands" ? <DataFilter details={details} pageState={pageState} filterUrl={filterUrl} loading={loading} /> : filterUrl === 'catalog' ? <DataFilter details={details} pageState={pageState} filterUrl={filterUrl} loading={loading} /> : <DataFilter details={details} pageState={pageState} filterUrl={filterUrl} loading={loading} />}
+      <div className="list-page">
+        {filterUrl === "brands" ? <DataFilter details={details} pageState={pageState} filterUrl={filterUrl} loading={loading} />
+          : filterUrl === 'catalog' ? <DataFilter details={details} pageState={pageState} filterUrl={filterUrl} loading={loading} />
+            : filterUrl === 'search' ? <DataFilter details={details} pageState={pageState} filterUrl={filterUrl} loading={loading} />
+              : <DataFilter details={details} pageState={pageState} filterUrl={filterUrl} loading={loading} />}
       </div>
     </>
   );

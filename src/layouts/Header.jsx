@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { Magnifier, Bars, Xmark } from '@gravity-ui/icons';
 import { Button, TextInput } from '@gravity-ui/uikit';
 import { useSearchContext } from '../context/context'
-import ProductsPage from "../pages/ProductsPage";
 import useSearch from "../hooks/useSearch";
 
 export default function Header() {
   const { isSearchVisible, toggleSearchVisibility, handleSearchValue, searchValue } = useSearchContext()
-  const { searchedDetails, searchProducts } = useSearch()
+  const { searchProducts } = useSearch()
   const [burgerOpen, setBurgerOpen] = useState()
+
+  // useEffect(() => {
+  //   if (searchValue !== "") {
+  //     searchProducts();
+  //   }
+  // }, [searchProducts]);
 
   return (
     <>
@@ -34,7 +39,7 @@ export default function Header() {
                 !isSearchVisible && (
                   <>
                     <NavLink to={"/catalog"} className="header__link">
-                      Products
+                      Catalog
                     </NavLink>
                     <NavLink to={"/brands"} className="header__link">
                       Brands
@@ -61,13 +66,12 @@ export default function Header() {
             </div> : null
           }
           <div className="header__icons">
-            <Magnifier className="header search-form__icon" onClick={toggleSearchVisibility} size='xl' />
+            {isSearchVisible ? (<Xmark className="header search-form__icon_close" onClick={toggleSearchVisibility} />) : (<Magnifier className="header search-form__icon" onClick={toggleSearchVisibility} size='xl' />)}
             <Bars className="header burger-icon" onClick={() => setBurgerOpen(!burgerOpen)} size='xl' />
           </div>
           {burgerOpen && <div className="header__overlay" onClick={() => setBurgerOpen(false)}></div>}
         </div>
       </div >
-      {/* {searchValue ? <ProductsPage searchedDetails={searchedDetails} searchValue={searchValue} /> : null} */}
     </>
   );
 }

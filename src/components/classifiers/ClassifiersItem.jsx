@@ -21,12 +21,12 @@ export default function ClassifierItem(props) {
 
   if (isTypes) {
     classifierItem = (
-      <Card style={style} view="filed" type="container" size="l">
+      <Card style={style} view="filed" type="container" size="l" className="catalog-page__card">
         <Link to={`/${path}`}>
-          <div className="product-types__photo">
+          <div className="catalog-page__photo">
             <img src={img} alt={name} />
           </div>
-          <div className="product-types__title">{name}</div>
+          <div className="catalog-page__title">{name}</div>
         </Link>
       </Card>
     );
@@ -34,12 +34,12 @@ export default function ClassifierItem(props) {
     classifierItem = (
       <div >
         <Link to={`/${path}`} >
-          <Button view="normal" size="l" className="product-brands__button">
+          <Button view="normal" size="l" className="brands-page__button">
             {brand_name}
           </Button>
         </Link>
       </div>
-    );
+    )
   }
 
   return <div>{classifierItem}</div>;

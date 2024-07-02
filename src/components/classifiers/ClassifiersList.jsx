@@ -7,17 +7,17 @@ export default function ClassifiersList({ isTypes }) {
   let classifierList;
   if (isTypes) {
     classifierList = (
-      <div className="product-types">
+      <div className="catalog-page__wrapper">
         {types.map((type) => (
-          <ClassifierItem key={type.id} {...type} isTypes={isTypes} className="product-type" />
+          <ClassifierItem key={type.id} {...type} isTypes={isTypes} />
         ))}
       </div>
     );
   } else {
     classifierList = (
-      <div className="product-brands">
+      <div className="brands-page__wrapper">
         {brands.map((brand) => (
-          <ClassifierItem key={brand.id} {...brand} isTypes={isTypes} className="product-brand" />
+          <ClassifierItem key={brand.id} {...brand} isTypes={isTypes} />
         ))}
       </div>
     );

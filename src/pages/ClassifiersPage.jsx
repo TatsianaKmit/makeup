@@ -8,7 +8,6 @@ export default function ClassifiersPage({ type }) {
     const [loading, setLoading] = useState(true);
     const location = useLocation();
 
-
     useEffect(() => {
         if (location.pathname === "/catalog") {
             setLoading(false)
@@ -23,7 +22,7 @@ export default function ClassifiersPage({ type }) {
         <>
             <div className="classifiers-page">
                 <div className="page-container">
-                    {loading ? <Spin className='spin' /> : <ClassifiersList isTypes={isTypes} />}
+                    {loading ? <div className="spin" size='xl'><Spin /></div> : <ClassifiersList isTypes={isTypes} />}
                 </div>
             </div>
         </>

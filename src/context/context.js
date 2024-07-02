@@ -24,6 +24,7 @@ export const SearchProvider = ({ children }) => {
     }, []);
 
     console.log('context details', details);
+    console.log('search value', searchValue);
 
     const handleSearchValue = (value) => {
         setSearchValue(value)
